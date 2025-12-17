@@ -76,6 +76,7 @@ Uma plataforma dedicada estabelece as bases para que CDD e composabilidade sejam
 
 **Capacidades necessárias de uma plataforma de CDD e composição de aplicativos**: Para permitir o desenvolvimento bem-sucedido de aplicações por meio de componentes componíveis e escalar esse processo de forma eficaz na organização, é necessária uma longa lista de capacidades críticas.
 
+## [Microfrontend] Bit
 A Bit e a <a href="https://bit.cloud/">Bit Cloud</a> oferecem uma solução completa para equipes inovadoras que desenvolvem produtos de software componíveis. Como a plataforma líder do setor em desenvolvimento orientado a componentes, ela impulsiona o desenvolvimento de aplicativos componíveis em larga escala para milhares de equipes e empresas da Fortune 500.
 
 Abaixo está um breve resumo das principais capacidades necessárias para uma plataforma CDD fornecido pela Bit.
