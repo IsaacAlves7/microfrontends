@@ -3,7 +3,7 @@
 
 <a href="https://codepen.io/your-work"><img src="https://github.com/user-attachments/assets/3bb5bd0c-6941-4a95-80e7-6f3ba9d1f479" align="right" height="277"></a>
 
-Talvez você já tenha ouvido falar sobre o conceito de microserviços. Aquele negócio de dividir o back-end em partes menores, cada um com sua responsabilidade. Porém, no front-end ainda é muito comum o uso de monolitos. 
+Talvez você já tenha ouvido falar sobre o conceito de microserviços. Aquele negócio de dividir o back-end em partes menores, cada um com sua responsabilidade (SOLID). Porém, no front-end ainda é muito comum o uso de monolitos. 
 
 Mas e se quisermos dividir também o front-end em partes menores e independentes, pois o desenvolvimento de softwares para web está em constante mudança, para acompanhar as crescentes demandas de escalabilidade, manutenção e performance. Nesse sentido, uma das grades evoluções é o conceito de Aplicações _Micro Front-end_.
 
