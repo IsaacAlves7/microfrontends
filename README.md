@@ -1,2 +1,569 @@
-# microfrontends
-🎨 It's a repository of Microfrontends from scratch.
+# 🎨 Micro-Frontend
+<img src="https://img.shields.io/badge/Figma-features-tomato?style=flat&logo=Figma&logoColor=white"> <img src="https://img.shields.io/badge/Vue.js-16.17.0-339933?style=flat&logo=Vue.js&logoColor=white"> <img src="https://img.shields.io/badge/Angular-3.3-CC342D?style=flat&logo=Angular&logoColor=white"> <img src="https://img.shields.io/badge/Angular-3.3-CC342D?style=flat&logo=Angular&logoColor=white"> <a href="https://blog.bitsrc.io/top-9-react-component-libraries-for-2025-a11139b3ed2e?source=post_page---author_recirc--df10edf0e8d0----0---------------------1744195f_55d3_428f_b6fa_370d3ddc78c4--------------"><img src="https://img.shields.io/badge/React-23-00ADD8?style=flat&logo=React&logoColor=white"></a> <a href=""><img src="https://img.shields.io/badge/Vite-23-violet?style=flat&logo=Vite&logoColor=white"></a> <img src="https://img.shields.io/badge/Blazor-8.0.300-512BD4?style=flat&logo=Blazor&logoColor=white"> <img src="https://img.shields.io/badge/Svelte-8.0.300-orange?style=flat&logo=Svelte&logoColor=white">
+
+<img src="https://github.com/user-attachments/assets/3bb5bd0c-6941-4a95-80e7-6f3ba9d1f479" align="right" height="277">
+
+Talvez você já tenha ouvido falar sobre o conceito de microserviços. Aquele negócio de dividir o back-end em partes menores, cada um com sua responsabilidade. Porém, no front-end ainda é muito comum o uso de monolitos. 
+
+Mas e se quisermos dividir também o front-end em partes menores e independentes, pois o desenvolvimento de softwares para web está em constante mudança, para acompanhar as crescentes demandas de escalabilidade, manutenção e performance. Nesse sentido, uma das grades evoluções é o conceito de Aplicações _Micro Front-end_.
+
+A técnica de **micro front-end** se baseia na fragmentação de projetos extensos e complexos (conhecidos como monolitos) em elementos menores e mais simplificados. Esses elementos podem ser desenvolvidos, implantados e mantidos independentemente uns dos outros, enquanto são apresentados ao usuário final como um produto único e integrado. Micro frontends são uma abordagem de desenvolvimento frontend que divide uma aplicação em componentes menores, independentes e reutilizáveis, que podem ser desenvolvidos, testados e implantados separadamente. Essa abordagem, inspirada nos microserviços do backend, permite que diferentes equipes trabalhem em partes distintas da aplicação, acelerando o desenvolvimento e melhorando a escalabilidade. 
+
+> **Micro front-end** é uma abordagem de arquitetura de software para desenvolvimento web inspirada em padrões de **micro-serviços**. Ou seja, estamos construindo aplicativos componíveis de forma orquestrada e escalável usando uma plataforma de desenvolvimento orientada a componentes (CDD - Component-Driven Development). Ao longo da minha carreira, testemunhei os desafios das arquiteturas monolíticas de front-end e o poder transformador dos microfront-ends.
+
+> [!Tip]
+> "Ajudar desenvolvedores a trabalharem de forma mais inteligente e rápida, com uma abordagem compartilhável e de blocos de construção para criar experiências consistentes é central para o foco moderno e centrado no cliente da Dell Digital. Compartilhar componentes capacita os desenvolvedores a desenvolver e lançar recursos de forma mais rápida e consistente. Eles podem publicar e acessar componentes e recursos de UX aplicáveis em diversas experiências digitais.
+>
+> Antes, os desenvolvedores ficavam realmente frustrados por ter que escrever aparentemente um milhão de linhas de código repetidamente, descobrindo detalhes e fazendo os testes. Com componentes prontamente disponíveis, agora podem se desenvolver e entregar em um quarto do tempo que levavam antes. Agora eles podem investir em um desenvolvimento de recursos mais inovadores." <a href="https://www.dell.com/en-us/blog/a-shared-building-block-approach-to-better-user-experience/">Líder de Transformação Tecnológica na Dell, Bit Platform</a>
+
+<a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" align="left"></a>
+
+<a href="https://medium.com/better-programming/the-future-of-micro-frontends-2f527f97d506">Micro frontends</a> são uma abordagem arquitetônica poderosa para gerenciar a complexidade de aplicações empresariais modernas. Ao atender aos principais requisitos de desenvolvimento desacoplado, versionamento independente, atualizações incrementais, implantações independentes, integração em tempo de execução, componentes compartilhados, desenvolvimento colaborativo e equipes autônomas, as organizações podem alcançar uma arquitetura frontend altamente modular e escalável. A Bit and Webpack Module Federation oferece um conjunto robusto de ferramentas para apoiar esses objetivos, capacitando as equipes a inovar mais rápido e entregar experiências excepcionais ao usuário em um cenário digital em rápida evolução.
+
+Micro frontends estão mudando fundamentalmente a forma como construímos e escalamos frontend. Ao dividir frontends monolíticos em partes menores e mais gerenciáveis, as equipes podem desenvolver, implantar e atualizar componentes de frontend de forma independente, o que aumenta a escalabilidade e a flexibilidade. 
+
+À medida que as aplicações empresariais se tornam complexas, adotar micro frontends é fundamental para manter a agilidade e acelerar os ciclos de desenvolvimento. As aplicações de micro front-end estão transformando a forma como abordamos o desenvolvimento web. Ao dividir o front-end monolítico em partes menores, ganhamos vantagens em escalabilidade, manutenção e velocidade de desenvolvimento. Esses benefícios capacitam equipes a trabalhar de forma eficiente, colaborativa e a manter a competitividade em um cenário digital em constante evolução.
+
+Antes do Desenvolvimento Orientado por Componentes (CDD) e do desenvolvimento de aplicativos composáveis (CAD - Composable App Development), a cadeia de ferramentas monolítica orientada a projetos tornava o processo de escalar o desenvolvimento de múltiplos produtos e equipes muito desafiador. Cada aplicação foi desenvolvida como um projeto de código compartimentado, com todas as suas funcionalidades como implementação interna de código, altamente acoplada a um projeto específico, dificultando separar, compartilhar e atualizar diferentes partes da aplicação em todo o sistema.
+
+Soluções corrigidas exigiam muita flexibilização de arquitetura, ferramentas adicionais construídas e integradas, e criavam problemas complexos como compartilhamento de código, controle de versões, gerenciamento de dependências, atualizações etc. Cada projeto ficou mais difícil de escalar à medida que mais recursos e desenvolvedores se juntaram, enquanto as organizações não tinham uma forma eficaz de compartilhar componentes, colaborar em mudanças e orquestrar atualizações. Como resultado, os desenvolvedores tiveram que escrever o mesmo código repetidamente, levando a um enorme desperdício de tempo e recursos e a experiências de produto inconsistentes. Como resultado, as organizações experimentaram uma diminuição do ROI no desenvolvimento de software.
+
+![1_JzDawgQIj9TGcI6CyUeJkA](https://github.com/user-attachments/assets/c813bec6-ce3b-46d7-a105-4ad30644ed9b)
+
+CDD é uma abordagem evolutiva componível para o desenvolvimento moderno de software. Ele define um padrão de design arquitetônico que resolve desafios fundamentais que atrasaram o desenvolvimento de software por décadas, por meio da composabilidade e modularidade para o desenvolvimento de aplicações.
+
+Base de plataforma composável OSS: Composable Platform
+
+<table>
+	<tr>
+		<td><img src="https://github.com/user-attachments/assets/5534800c-3834-42c3-a06e-36aaeca07c9a"></td>
+		<td><img src="https://github.com/user-attachments/assets/b56b7550-3ca1-4ae0-ae6e-8f62988afdd6"></td>
+	</tr>
+</table>
+
+CDD define uma arquitetura componível onde as aplicações são compostas como Lego por meio de blocos de construção menores, independentes e reutilizáveis — componentes. CDD é uma abordagem baseada em reutilização; os componentes são compartilhados e gerenciados como blocos de construção e disponibilizados para todas as equipes e produtos da organização, para serem reutilizados e orquestrados de forma eficiente em escala.
+
+Os componentes podem ser desde interfaces simples até recursos, micro-frontends, experiências completas do usuário, aplicativos, utilitários e até lógica front-end e backend. Ao dividir o desenvolvimento em componentes fracamente acoplados, o desenvolvimento pode ser distribuído entre as equipes e os componentes se tornam ativos reutilizáveis que são compartilhados e orquestrados entre os produtos.
+
+Os benefícios da composabilidade e do CDD são revolucionários no curto e longo prazo:
+
+1. **Velocidade de entrega**: Componentes reutilizáveis permitem que desenvolvedores acelerem o desenvolvimento e reduzam o tempo de desenvolvimento em 80% em novos produtos — pois não precisam reescrever código, tomar decisões e repetir o trabalho repetidamente (veja Estudo de Caso Dell com Bit).
+
+2. **Consistência do produto**: Componentes reutilizáveis proporcionam consistência ideal no código, design e experiência do usuário em todos os produtos e experiências digitais da organização.
+
+3. **Eficiência e ROI**: Com componentes reutilizáveis, os desenvolvedores não precisam escrever o mesmo código repetidamente, reduzindo os custos de desenvolvimento por aplicativo em até 80%. Cada componente é construído uma vez e se torna um ativo compartilhado com valor composto (veja estudo de caso sobre ROI).
+
+4. **Equipes autônomas e entrega rápida** — Equipes especialistas em domínio podem possuir, desenvolver e enviar componentes de forma autônoma para diferentes responsabilidades de negócios (por exemplo, "UI", "Pagamentos" etc.), permitindo entrega rápida e resposta rápida a necessidades emergentes.
+
+5. **Arquitetura escalável e mantível** — Um sistema de aplicativo componível construído com componentes é altamente modular e pode ser mais facilmente mantido e escalado. Com uma plataforma CDD, os componentes podem ser compartilhados, atualizados e orquestrados em todo o sistema.
+
+- **Benefícios adicionais incluem um planejamento mais inteligente** — quando surgem novas necessidades, arquitetos e desenvolvedores decidem se ampliam os componentes existentes ou criam novos;
+- **Produtos de Maior Qualidade** — O reuso de componentes previne a maioria dos bugs e erros, e a qualidade dos produtos de software melhora significativamente;
+- **Personalizações de experiência** — cada experiência pode ser facilmente customizada com diferentes versões para otimizar diferentes jornadas do usuário, mesmo em grande escala;
+- **colaboração multifuncional** — designers, desenvolvedores e todas as partes interessadas podem planejar e participar ativamente do processo de desenvolvimento diretamente sobre componentes reais do aplicativo;
+- **agilidade de desenvolvimento** — CDD melhora a agilidade ao dividir decisões e entregas para o nível de componente;
+- **governança e visibilidade** — os líderes obtêm uma visão de raio-x dos ativos tecnológicos disponíveis da organização e podem acompanhar o uso e o impacto dos componentes e iniciativas na organização;
+- **Padronização e modernização** — com CDD, o desenvolvimento é padronizado desde as tecnologias usadas pelos componentes até seu processo de lançamento. Novos recursos podem ser adicionados a aplicativos legados em um processo sempre verde;
+- **Integração mais rápida** — Integrar desenvolvedores em novos produtos é mais rápido quando eles só precisam trabalhar em componentes.
+
+Embora o CDD possa existir em pequenos bolsões sem uma plataforma de suporte, a compostabilidade em escala requer uma variedade de soluções para maximizar o ROI e garantir uma experiência sem atritos.
+
+O desenvolvimento de CDD e aplicativos componíveis exige uma longa lista de capacidades para ser bem-sucedido e escalável. Como as ferramentas antigas não foram criadas para desenvolvimento orientado a componentes desde o início, o esforço, o tempo, o custo e o risco de complexidade de construir e manter uma solução alternativa completa são enormes.
+
+Embora o conjunto de ferramentas de desenvolvimento orientado a projetos do passado não ofereça as capacidades necessárias para facilitar esse novo tipo de desenvolvimento, plataformas dedicadas e cadeias de ferramentas como a Bit fornecem um conjunto completo de soluções em um único fluxo de trabalho escalável.
+
+Uma plataforma dedicada estabelece as bases para que CDD e composabilidade sejam aplicadas e escaladas com sucesso, ao mesmo tempo em que fornece todas as capacidades necessárias em um único fluxo de trabalho. Isso reduz o tempo e o custo de construir e corrigir ferramentas para resolver uma longa lista de capacidades (que pode levar anos e milhões de dólares), e elimina o risco de enfrentar desafios e questões complexas.
+
+**Capacidades necessárias de uma plataforma de CDD e composição de aplicativos**: Para permitir o desenvolvimento bem-sucedido de aplicações por meio de componentes componíveis e escalar esse processo de forma eficaz na organização, é necessária uma longa lista de capacidades críticas.
+
+A Bit e a <a href="https://bit.cloud/">Bit Cloud</a> oferecem uma solução completa para equipes inovadoras que desenvolvem produtos de software componíveis. Como a plataforma líder do setor em desenvolvimento orientado a componentes, ela impulsiona o desenvolvimento de aplicativos componíveis em larga escala para milhares de equipes e empresas da Fortune 500.
+
+Abaixo está um breve resumo das principais capacidades necessárias para uma plataforma CDD fornecido pela Bit.
+
+1. **Conjunto de ferramentas de desenvolvimento orientado a componentes**: Para que os componentes se tornem blocos de construção e possam ser compartilhados entre produtos, eles devem ser desacoplados da implementação interna de um projeto específico. O conjunto de ferramentas orientado por projetos do passado nunca foi criado para esse propósito, o que torna esse processo extremamente difícil de alcançar.
+
+![1_7uvrJ1kW7EMYgoT4mQNKQg](https://github.com/user-attachments/assets/ef283f6a-d7fa-49dd-9487-332d51df2dbe)
+
+O Bit fornece um conjunto completo de ferramentas OSS para o desenvolvimento e composição de componentes componíveis, como blocos de build de aplicações "containerizados" e gerenciados, incluindo:
+
+**Componente de bit**: Um componente de bit funciona como um "contêiner" para qualquer unidade de software. Inclui tudo o que é necessário para desenvolver, construir, usar, atualizar e gerenciar o componente de forma independente.
+
+Um componente Bit pode ser um app, um recurso, uma micro-frontend, uma experiência do usuário, uma parte de interface ou até mesmo um serviço backend ou um script de CLI. Cada componente pode ser desenvolvido e usado em qualquer lugar.
+
+**Espaço de trabalho de componentes**: O espaço de trabalho do Bit permite que desenvolvedores criem, gerenciem e compusam componentes. Ele pode ser gerado dentro ou fora de qualquer base de código existente. O espaço de trabalho oferece uma experiência simples e consistente para desenvolver, versionar, testar, gerenciar e compor componentes por meio de dependências, sem as limitações de um repositório e sem paralisar configurações manuais. Uma interface integrada e um servidor de desenvolvimento rápido proporcionam um feedback visual ao vivo agradável.
+
+**Ambientes de desenvolvimento de componentes**: O Bit permite que desenvolvedores definam e reutilizem ambientes de desenvolvimento para seus diferentes componentes a fim de desenvolver, construir, testar, aplicar lint etc. de cada componente. Ambientes também são componentes, podendo ser personalizados, compartilhados e reutilizados. Cada componente tem um ciclo de vida totalmente independente do desenvolvimento, e o desenvolvimento se torna mais padronizado.
+
+2. **Controle do código-fonte dos componentes e versionamento**: Para que o CDD seja aplicado, o código-fonte de cada componente deve ser controlado de forma independente e cada componente deve ser versionado de forma independente. No entanto, as ferramentas anteriores orientadas por projetos simplesmente não foram feitas para esse trabalho. Sem um conjunto dedicado de ferramentas CDD, uma quantidade incrível de trabalho e tempo será desperdiçada nesse processo, de uma forma inescalável.
+
+![1_lpIYAiBnP5eZMgyp14MUBw](https://github.com/user-attachments/assets/2099d9d6-257b-49c9-aacb-fe929268d1b9)
+
+Com o Bit, o código-fonte de cada componente é gerenciado e controlado separadamente. Cada componente é versionado de forma independente e pode ser atualizado junto com outros componentes que dependem dele. Tudo em um fluxo de trabalho simples, consistente e escalável. Recursos do Bit Cloud como "comparar componentes" e "revisão de alterações" fornecem um fluxo de trabalho completo para sugerir, revisar e colaborar em mudanças em componentes em toda a organização.
+
+3. **Gestão de dependências: automatizada, inteligente e consistente**: À medida que a organização constrói e compartilha componentes, elas são compostas como dependências e réus. À medida que seu gráfico de componentes e dependências cresce, rapidamente se torna difícil gerenciar suas dependências e evitar problemas dolorosos.
+   
+![1_RRgM3Bd1BRh_1z2csQm0KQ](https://github.com/user-attachments/assets/4a27194d-b699-446e-8fc2-fa194cdd71ee)
+
+O bit oferece um mecanismo único para definir e gerenciar dependências automaticamente de forma simples e consistente. Em vez de se afogar em arquivos de configuração e enfrentar problemas complexos como dependências ausentes ou conflitantes, o Bit oferece detecção automática de dependências, gerenciamento consistente de versões e políticas inteligentes de atualização para ajudar a agilizar e escalar o gerenciamento de dependências do workspace local para todo o sistema de aplicação.
+
+4. **Embalagem e distribuição**: Sem uma solução dedicada, empacotar e distribuir componentes independentes é uma tarefa desafiadora e ainda mais difícil de escalar. Exige muito trabalho manual e patches para empacotar, publicar, manter e gerenciar muitos componentes pequenos.
+
+Com o conjunto de ferramentas CDD dedicado da Bit, cada componente é versionado de forma independente e empacotado de forma integrada como parte do seu fluxo de desenvolvimento, podendo ser distribuído com artefatos construídos, entregues e armazenados. Cada componente automaticamente se torna um pacote publicado à medida que é exportado, independentemente de onde e como você o desenvolve e sua arquitetura.
+
+5. **Plataforma central para compartilhamento e colaboração**: Uma plataforma central é fundamental para o sucesso de um CDD, desenvolvimento de aplicativos componíveis e um sistema de componentes compartilhados. Por meio do hub, os componentes são organizados, compartilhados e disponibilizados para todos na organização. Deve fornecer muitas soluções adicionais necessárias, como descoberta, um processo para sugerir e colaborar em mudanças de componentes, a orquestração de atualizações em toda a organização e análise e controle de componentes.
+
+![1_xwhshSJ5PUa1hDsP2nv-FQ](https://github.com/user-attachments/assets/26a83fab-e947-4e6a-acee-260ca55977ad)
+![1_n08N9rn4HXXmhDc5OusKbw](https://github.com/user-attachments/assets/897b50f0-2a68-4c5a-8b2e-fa15151362fc)
+
+Construir essa plataforma é um desafio esmagador para qualquer organização. Mais de 5 anos e dezenas de milhões de dólares foram investidos no Bit Cloud, a plataforma mundial de desenvolvimento de produtos compáteis #1 completa. Ele oferece todas as capacidades necessárias para que as organizações aproveitem e escalem CDD, compartilhem componentes e colaborem — em um só lugar. Ele vem pronto para empresas com os mais altos padrões de segurança e conformidade, e impulsiona o desenvolvimento para grandes equipes globais.
+
+Vamos explorar os principais requisitos para implementar com sucesso micro frontends em 2024. Também vamos explorar como a **Bit** and **Webpack Module Federation** pode ajudar a atender a esses requisitos e escalar arquiteturas micro frontend em grandes organizações. Este <a href="https://youtu.be/4CQEPBLxU_g">guia</a> vai guiá-lo pelos fundamentos para construir uma arquitetura de microfrontend componível, escalável e de alto desempenho em sua organização, incluindo colaboração e atualizações em diversas aplicações.
+
+Essa abordagem pode resultar em vários problemas, como falta de escalabilidade, dificuldades na manutenção de uma grande base de código e ciclos de desenvolvimento mais lentos.
+
+Por outro lado, aplicações de micro front-end, dividem o front-end em partes menores, independentes e que podem ser implantadas de forma separada, assim como os micro-serviços fazem para o back-end.
+
+<img src="https://github.com/user-attachments/assets/9335f5b7-b920-4dc8-aff1-7d27226bb0fd" align="right" height="377">
+
+Por exemplo: uma aplicação monolítica tradicional, a parte de front-end geralmente é uma única base de código responsável por toda a interface do usuário (conhecido como monólito). Considere a adoção de aplicações de micro front-end para aproveitar seu potencial, adotando assim uma abordagem moderna à criação de aplicações web. Nada melhor que detalhar essa explicação com um bom exemplo. A imagem abaixo (figura 1), demonstra um ótimo cenário para entendermos melhor este conceito:
+
+Cada parte é conhecida como um micro front-end e normalmente representa um recurso ou componente específico da interface do usuário. Esses micro front-ends podem ser desenvolvidos, testados e implantados por diferentes equipes, permitindo agilidade, flexibilidade e ciclos de desenvolvimento mais rápidos.
+
+Benefícios das Aplicações de Micro Front-end:
+
+1. **Escalabilidade**: aplicações micro front-end são altamente escaláveis. Você pode construir e implantar novos recursos ou atualizações em recursos existentes sem afetar toda a aplicação. Isso significa que você pode escalar sua aplicação de forma incremental, adicionando novas funcionalidades à medida que seu projeto evolui.
+
+2. **Desenvolvimento ágil**: aplicações de micro front-end possibilitam ciclos de desenvolvimento mais rápidos. As equipes podem trabalhar em seus micro front-ends de forma independente, reduzindo gargalos e permitindo desenvolvimento em paralelo. Isso resulta em um tempo mais curto para levar novos recursos e atualizações ao mercado.
+
+3. **Manutenção**: bases de código menores e isoladas são mais fáceis de gerenciar e manter. Cada equipe pode ser responsável por seu micro front-end, tornando mais simples entender e solucionar problemas. Essa modularidade também facilita a integração de novos desenvolvedores.
+
+4. **Colaboração**: equipes podem trabalhar em paralelo, proporcionando um processo de desenvolvimento mais ágil e colaborativo. Cada equipe concentra-se em seu próprio micro front-end, garantindo que ele funcione corretamente e se integre ao restante da aplicação.
+
+5. **Reutilização**: aplicações micro front-end podem ser reutilizados em diferentes partes do seu aplicativo, levando a interfaces de usuário mais consistentes e a eliminação de códigos duplicados.
+
+6. **Tecnologia agnóstica**: Os micro front-ends podem ser desenvolvidos com diferentes tecnologias, frameworks ou linguagens de programação. Isso permite que as equipes escolham as ferramentas e tecnologias que melhor atendam às suas necessidades, garantindo que a aplicação permaneça flexível e adaptável.
+
+Como implementar Aplicações de Micro Front-end: Para implementar aplicações de micro front-end, você pode usar várias técnicas e ferramentas, como: 
+
+<a href="https://luiscameroon.medium.com/micro-frontends-with-module-federation-d5d9e135b0f1"><img src="https://github.com/user-attachments/assets/0b996b67-7657-4f01-a711-3a2b6482aa27" align="right" height="177"></a>
+
+1. <a href="https://module-federation.io/">Module Federation</a>: podemos utilizar o plugin de federação de módulos do webpack para carregar micro front-ends dinamicamente. Micro-frontends com Module Federation oferecem uma abordagem escalável e modular para construir aplicações web. Ao dividir as aplicações em módulos independentes, os desenvolvedores podem trabalhar de forma autônoma e aproveitar o poder do carregamento dinâmico de módulos. Podemos utilizar Micro-frontends com Federação de Módulos e demonstrar sua implementação usando React e Vite. Comece a experimentar essa arquitetura para construir aplicações web flexíveis, manuteníveis e eficientes.
+
+2. **Componentes da web**: usar componentes da web para criar elementos de interface reutilizáveis que podem ser incorporados em diferentes micro front-ends.
+
+3. **Inclusões no lado do servidor (SSI)**: combinar micro front-ends no nível do servidor, possibilitando a montagem de conteúdo dinâmico.
+
+4. **API Gateway**: implementar um gateway de API para encaminhar solicitações para o micro Front-end apropriado.
+
+5. **Aplicações de contêiner**: construir uma aplicação de contêiner que gerencia a composição dos micro front-ends.
+
+Principais Requisitos para a Arquitetura Micro Frontend:
+
+**1. Desenvolvimento Desacoplado**: O desenvolvimento desacoplado em arquitetura micro frontend permite que cada micro frontend seja desenvolvido, implantado e mantido de forma independente. Cada uma, representando uma característica distinta, pode usar sua própria pilha tecnológica, cronograma de lançamento e processos. Essa autonomia reduz as dependências das equipes, permitindo inovação e iteração mais rápidas.
+
+Em grandes empresas, frontends frequentemente se tornam monolíticos e difíceis de gerenciar, onde mudanças podem impactar todo o sistema, retardando o desenvolvimento e aumentando riscos. O desenvolvimento desacoplado divide o frontend em partes gerenciáveis, permitindo que as equipes:
+
+- Inove Mais Rápido: Escolha as ferramentas e frameworks ideais, acelerando o desenvolvimento.
+- Reduzir riscos: Isole as mudanças para minimizar o impacto na aplicação mais ampla.
+- Escale de forma eficiente: Escale independentemente cada micro frontend, apoiando o crescimento orgânico.
+
+Frameworks de microfrontend permitem criar unidades menores e independentes para sua aplicação frontend, que permitem focar no desenvolvimento de partes independentes da sua aplicação como componentes. Essas pequenas unidades podem ser desenvolvidas, testadas, versionadas e implantadas por equipes separadas. Isso ajudará você a aprimorar seu trabalho paralelo e minimizar o risco de gargalos nos pipelines de desenvolvimento.
+
+<a href="https://bit.dev/"><img src="https://github.com/user-attachments/assets/bae1537b-cdba-495a-8d04-b5d2ecbdc681" align="right" height="177"></a>
+
+A **Bit** oferece uma plataforma de nível empresarial para implementar desenvolvimento desacoplado em micro frontends. Veja como Bit facilita esse processo: Ele permite que desenvolvedores encapsulem recursos frontend como componentes individuais, desenvolvidos de forma independente e versionados. Esse isolamento permite que as equipes atualizem e lancem novas versões sem afetar outras partes do aplicativo. Construindo uma solução escalável de micro frontends com federação de módulos e bits.
+
+![1_OlQsunH7kXFFctnuWb9RNw](https://github.com/user-attachments/assets/a7dc9d37-bcca-4bb4-9509-e134eb23394a)
+
+Usaremos a Federação de Módulos e o Bit para implementar uma integração em tempo de execução de Micro Frontends. O Bit oferece modelos pré-configurados para nosso aplicativo host e módulos remotos. Também facilita incrivelmente o compartilhamento de componentes entre micro frontends.
+
+Por exemplo, uma equipe pode atualizar uma micro frontend baseada em React enquanto outra trabalha simultaneamente em um componente Angular, com ambos gerenciados de forma independente.
+
+> Saiba mais: Criar componentes | Bit - Um componente é um módulo reutilizável, controlado por código-fonte independente, que é armazenado em escopos e mantido em... bit.dev
+
+Exemplo: Um componente React para uma página de perfil de usuário pode ser desenvolvido isoladamente dentro do ambiente do Bit. Ele pode ser versionado, testado e implantado independentemente do restante da aplicação, garantindo que quaisquer atualizações desse componente não atrapalhem outras micro frontends.
+
+**Host Apps and Remote Modules**: O aplicativo host e os módulos remotos foram gerados usando modelos pré-configurados (disponibilizados pela Bit):
+
+```sh
+npx @teambit/bvm install # install Bit
+bit init my-modfed-solution # create a new Bit workspace
+cd my-modfed-solution
+```
+
+Adicione o seguinte ao seu para disponibilizar os templates do ModFed no seu espaço de trabalho: `workspace.jsonc`
+
+```sh
+"teambit.generator/generator": {
+    "envs": [
+      "frontend.module-federation/envs/mf-react-env"
+    ]
+  }
+```
+
+Execute os seguintes comandos:
+
+```sh
+bit install # install the workspace dependnecies
+bit create modfed-remote-mfe storefront # generate a remote module
+bit create modfded-remote-mfe blog
+bit create modfed-host-app shell-app # generate a host app
+```
+
+> Execute para listar os modelos ModFed disponíveis: `bit templates`
+
+Para listar os aplicativos disponíveis (e módulos remotos), execute:
+
+```sh
+bit app list
+```
+
+A saída lista os IDs dos componentes e seus nomes correspondentes de app:
+
+<pre>
+┌─────────────────────────────────────────────────┬─────────────────────┐
+│ id                                              │ name                │
+├─────────────────────────────────────────────────┼─────────────────────┤
+│ bit-bazaar.storefront/storefront                │ storefront          │
+├─────────────────────────────────────────────────┼─────────────────────┤
+│ bit-bazaar.blog/blog                            │ blog                │
+├─────────────────────────────────────────────────┼─────────────────────┤
+│ bit-bazaar.shell-app/shell-app                  │ shell-app           │
+└─────────────────────────────────────────────────┴─────────────────────┘
+</pre>
+
+Você pode rodar os apps localmente usando o nome deles:
+
+```sh
+bit run storefront
+```
+
+**Shared Dependencies**: Nossa solução consiste em muitas dependências compartilhadas configuradas para serem excluídas dos pacotes de aplicativos e carregadas como blocos separados. Essa é uma das forças da ModFed. Isso nos permite otimizar o tamanho do nosso bundle, manter a consistência e evitar conflitos entre versões do mesmo módulo.
+
+Nossa lista de <a href="https://bit.cloud/bit-bazaar/shell-app/shared-dependencies/~code/shared-dependencies.ts">dependências compartilhadas</a> é mantida como um componente Bit compartilhado entre projetos (o aplicativo host e os módulos remotos). Isso permite que as equipes mantenham consistência enquanto trabalham de forma independente.
+
+A lista de dependências compartilhadas consiste principalmente em libs em tempo de execução e um sistema de projeto:
+
+![1_SDBgYqyMyiTVR3MmXrCVtw](https://github.com/user-attachments/assets/d0b70f19-bc9c-4971-ac53-54549289034d)
+
+O componente 'dependências compartilhadas' (que lista os deps de shred) é usado pela configuração do app host e pela configuração dos módulos remotos
+
+![1_owibIMnKJ0s749r8DEwWvw](https://github.com/user-attachments/assets/d8edd2d8-0ec3-432a-b9ec-6f0582e42c5b)
+
+Por exemplo: https://bit.cloud/bit-bazaar/shell-app/shared-dependencies/~code/shared-dependencies.ts
+
+```ts
+/**
+ * @filename: storefront.bit-app.ts
+ * @component-id: bit-bazaar.storefront/storefront
+*/
+
+import { MfReact } from '@frontend/module-federation.react.apps-types.mf-rspack';
+/* import the 'shared dependnecies' components */
+import { shellAppSharedDependencies } from '@bit-bazaar/shell-app.shared-dependencies';
+
+
+export default MfReact.from({
+  name: 'storefront',
+  clientRoot: './storefront.app-root.js',
+  moduleFederation: {
+    exposes: {
+      // ...
+    },
+    shared: shellAppSharedDependencies,
+  }
+});
+```
+
+**Um Sistema de Design Compartilhado**: Nossa biblioteca de componentes e tema são baseados no Material UI. Eles são mantidos no escopo de "design" e compartilhados entre Micro Frontends.
+
+![1_VNkzhuxM7aQiLslASgYs9A](https://github.com/user-attachments/assets/c7c58e4b-a74a-4b6b-9fad-b89e94186f90)
+
+**Contexto Compartilhado**: O 'Provedor de Tema', 'Provedor de Autenticação' e outros componentes de contexto fazem parte do "app anfitrião" ou "app shell". Por isso, eles são mantidos pela equipe do "app shell".
+
+![1_gzRW_UPh8FVNg6AdunoDOg](https://github.com/user-attachments/assets/1e1e225b-909c-4018-b4f3-8e7d3191e172)
+
+Equipes que trabalham em MFEs não precisam se preocupar com autenticação, autorização ou qualquer outra funcionalidade compartilhada. A equipe "anfitriã" ou "shell" fornece tudo para eles.
+
+Por exemplo, se o time Storefront precisar implementar funcionalidades baseadas na autenticação do usuário, eles explorariam o escopo do 'app shell' e buscariam o "SDK" correto.
+
+![1_nygdqeWAhwyCEkAhZSH8Ww](https://github.com/user-attachments/assets/443d42a3-8d1b-45b4-99cb-319c8fef16c1)
+
+O contexto e o gancho da "Auth"
+
+**Roteamento e navegação**: O aplicativo shell oferece uma espécie de "sistema de plugins" onde Micro Frontends (módulos remotos) podem se integrar a ele de maneiras que vão além de um simples link. Ele faz isso fornecendo os tipos para cada "plugin".
+
+![1_LNIly_jIcZHgyl67TluvKg](https://github.com/user-attachments/assets/6fa55e8c-2ede-4b87-a30a-96d704f2aa6d)
+
+O tipo compartilhado de "item de navegação"
+
+Por exemplo, um módulo remoto pode implementar uma interface de "item de navegação" que inclui suas opções de navegação.
+
+![1_O5Z7c-movW0_IlQZ-W4kMw](https://github.com/user-attachments/assets/64104f4f-ff36-4af6-a9cc-c8eaa7451321)
+
+Isso pode então ser exposto para o app shell (que o carregará em tempo de execução):
+
+```ts
+/**
+ * @filename: blog.bit-app.ts
+ * @component-id: bit-bazaar.blog/blog
+*/
+
+export default MfReact.from({
+  name: 'blog',
+  clientRoot: './blog.app-root.js',
+  moduleFederation: {
+    exposes: {
+      /** 
+       * the MFE navigation exposed to be loaded 
+       * by the shell app at runtime
+       **/
+      './blognav': './navitem.js',
+       /**
+        * the main chunk of the 'blog' MFE
+        **/
+      './blog': './blog.js',
+    },
+    shared: shellAppSharedDependencies,
+  },
+  deploy: Netlify.deploy(netlifyConfig),
+});
+```
+
+O roteamento é tratado no nível que se adequa ao módulo. Por exemplo, o app shell só gerencia o roteamento para e . Ele não determina o roteamento "dentro" de cada MFE (como ).`/blog/*/storefront/*storefront/products`
+
+```ts
+/**
+ * @filename: shell-app.tsx
+ * @component-id: bit-bazaar.shell-app/shell-app
+*/
+
+export function ShellApp() {
+  return (
+    <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Homepage />} />
+              <Route path="store/*" element={<Store />} />
+              <Route path="blog/*" element={<Blog />} />
+              <Route path="*" element={<div>Not Found</div>} />
+            </Route>
+          </Routes>
+    </BrowserRouter>
+  );
+}
+```
+
+Assim, os módulos remotos, como o 'blog', não são responsáveis pelo roteamento (o roteamento para o blog MFE) — apenas para rotas aninhadas.`/blog/*`
+
+```ts
+/**
+ * @filename: blog.tsx
+ * @component-id: bit-bazaar.blog/blog
+*/
+
+export function Blog() {
+  return (
+      <Routes>
+        <Route path="articles" element={<ArticlesPage />} />
+        <Route path="categories" element={<CategoriesPage />} />
+      </Routes>
+  );
+}
+```
+
+**DevX**: Para a experiência máxima de desenvolvedor, cada equipe usa um componente "Plataforma" para consumir uma versão imutável do app shell e possivelmente outros módulos remotos.
+
+Isso fornece aos MFEs o contexto adequado para rodar em desenvolvimento. Ele garante uma experiência de desenvolvimento consistente e fluida, ao mesmo tempo em que aplica corretamente permissões e controle de acesso (por exemplo, a equipe do 'blog' não pode modificar o MFE 'loja' ou o aplicativo shell).
+
+![1_NU2_MVKTnTMHAEfUr_5QBw](https://github.com/user-attachments/assets/8989648c-1723-4bc0-88a3-45f548d81521)
+
+https://bit.cloud/bit-bazaar/storefront/storefront-platform/~code/shell-platform.bit-app.ts
+
+![1_kxmzE2RnzgLq70WKtnKPSw](https://github.com/user-attachments/assets/83ac0908-ef10-469b-92d0-4e2467262aab)
+
+O 'shell-app' como uma dependência imutável da 'plataforma de loja' usada pela equipe de 'loja de loja' para o desenvolvimento de 'loja de loja' em seu contexto completo
+
+Por exemplo, a equipe 'storefront' consegue rodar o MFE 'storefront' em seu contexto completo (app shell e até outros MFEs) rodando o app 'platform' mantido por eles (apenas para desenvolvimento):
+
+```sh
+bit run storefront-platform
+```
+
+![1_990s5cPwdR9-tYjigxgNbw](https://github.com/user-attachments/assets/c94d8951-6415-470b-895c-9443e507b399)
+
+Você pode gerar um componente 'Platform' usando o modelo fornecido pelo ambiente ModFed (aquele configurado como gerador no início deste blog):
+
+```sh
+bit create modfed-platform my-platform
+```
+
+**2. Ambientes de Desenvolvimento Personalizados**: O Bit suporta ambientes de desenvolvimento personalizados adaptados a diferentes pilhas tecnológicas.
+
+Múltiplos Ambientes podem ser usados no mesmo "monorepo" e até reutilizados entre repositórios.
+
+As equipes podem configurar ambientes específicos para React, Angular, Vue.js ou qualquer outro framework. Esses ambientes incluem todas as ferramentas necessárias, como linters, compiladores e frameworks de teste, garantindo que cada micro frontend seja desenvolvido sob condições consistentes. Saiba Mais:
+
+React — Configure seu ambiente | Bit
+Criar um novo ambiente de desenvolvimento React
+bit.dev
+
+Exemplo: Uma equipe pode usar o Bit para configurar um ambiente React personalizado com ESLint e Jest para testes, enquanto outra equipe monta um ambiente Angular com Karma para testes unitários. Esses ambientes garantem que os processos de desenvolvimento, teste e construção sejam padronizados e otimizados dentro do contexto de cada micro frontend.
+4. Cápsulas para Construções Isoladas: A tecnologia Capsule do Bit permite que componentes sejam construídos em completo isolamento do restante da base de código. Esse isolamento garante que a build seja executada e que todas as dependências sejam gerenciadas corretamente, prevenindo problemas de escopo global e facilitando a identificação e correção de bugs no início do processo. As cápsulas oferecem aos desenvolvedores um campo de desenvolvimento e testes confiável antes da implantação.
+
+**2. Controle de Versões e Gerenciamento de Dependências**: Controle de versões e gerenciamento de dependências são aspectos cruciais da arquitetura micro frontend. Em uma configuração micro frontend, cada módulo ou componente frontend é desenvolvido, versionado e mantido de forma independente.
+
+<img width="647" height="417" alt="image" src="https://github.com/user-attachments/assets/c3cc2fac-c986-463e-bee4-2c9fc368228a" />
+
+Essa independência significa que cada módulo pode evoluir em seu próprio ritmo, com suas dependências específicas e sistema de versionamento.
+
+O controle de versão por componente garante que as atualizações de uma micro frontend não quebrem inadvertidamente outras partes da aplicação, enquanto um gerenciamento eficaz de dependências previne conflitos e garante que cada módulo possa funcionar conforme previsto no ecossistema maior.
+
+Em aplicações em larga escala, gerenciar dependências e versões torna-se cada vez mais complexo à medida que mais micro frontends são introduzidos.
+
+Sem um sistema robusto, é fácil surgir conflitos de dependências, levando a problemas como bibliotecas duplicadas, incompatibilidades de versões ou até mesmo falhas de aplicação. Controle de versões adequados e gerenciamento de dependências garantem que:
+
+- **Estabilidade é Mantida**: Atualizações em uma micro frontend não quebram outras, mantendo a estabilidade geral da aplicação.
+- **Dependências são Consistentes**: Cada micro frontend usa as versões corretas das bibliotecas compartilhadas, evitando conflitos e redundâncias.
+- **Flexibilidade de Implantação**: As equipes podem atualizar ou reverter micro frontends específicos sem afetar toda a aplicação, permitindo estratégias de implantação mais flexíveis e responsivas.
+
+A **Bit** oferece uma solução abrangente para controle de versões e gerenciamento de dependências em arquiteturas micro frontend. Veja como ele suporta esses processos:
+
+Versionamento Independente: Bit permite que cada componente ou micro frontend seja versionado independentemente (usando regras semver). Isso permite que as equipes misturem e combinem componentes, atualizem ou revertam componentes específicos sem impactar outros, possibilitando mudanças incrementais e lançamentos para micro frontends.
+
+![1_Yrv8YEoaGHv7oFoDxABmeQ](https://github.com/user-attachments/assets/9085f62f-ee04-499e-91cf-5a360a4ca327)
+
+Além disso, você pode comparar mudanças entre versões dos componentes, e não apenas código, mas também prévias, documentação, testes, dependências e mais:
+
+![1_Nvsh1bskCHSwqShLlalTGg](https://github.com/user-attachments/assets/12cdf282-55c8-4e72-911f-45e8d4ff1580)
+
+Versionamento por micro frontend; Dependências e atualizações automatizadas
+
+Cada alteração em um componente é rastreada e gerenciada dentro do Bit, fornecendo um histórico claro de versões e alterações. Marcar um componente vai aplicar uma versão, e bater uma versão fará com que o Bit te avise se houver outros componentes que também exigem um bump de versão como resultado. Aprender:
+
+Exemplo: Uma equipe pode atualizar um componente de login para melhorar a segurança. Com o Bit, eles podem lançar uma nova versão desse componente enquanto outras partes do aplicativo continuam usando versões mais antigas e estáveis. Se surgirem problemas, é fácil voltar para uma versão anterior sem afetar o restante do sistema.
+
+**Gerenciamento Automatizado de Dependências**: É aí que Bit realmente muda o jogo.
+
+![1_c_gnpxgZuZthxCEKX6y4OA](https://github.com/user-attachments/assets/a50ab9be-ff35-454e-ab7e-955801834840)
+
+Bit define e gerencia automaticamente as dependências de cada componente. Quando um componente é criado ou atualizado, o Bit resolve e instala todas as dependências necessárias, garantindo que cada micro frontend tenha tudo o que precisa para funcionar corretamente.
+
+![1_lBTUSmjDP5z4lgRhK01tTA](https://github.com/user-attachments/assets/89e276d5-232c-4e5e-817c-9563e447bfa4)
+
+> Esse processo ajuda a prevenir problemas como conflitos de dependências ou bibliotecas ausentes, que são comuns em aplicações complexas com monorepos, micro frontends e componentes compartilhados. Aqui está uma <a href="https://www.youtube.com/watch?v=vpVIw5QTlps">DEMONSTRAÇÃO em VÍDEO do autor da PNPM</a>.
+
+Exemplo: Suponha que uma micro frontend dependa de uma versão específica de uma biblioteca como . O bit garante que a versão correta esteja instalada e que outras micro frontends usando versões diferentes não interfiram nela. Esse isolamento previne conflitos e garante que cada micro frontend permaneça estável e funcional.`lodash lodash`
+
+1. **Dependências Compartilhadas**: O Bit também automatiza o gerenciamento de dependências compartilhadas entre micro frontends. Quando múltiplas micro frontends usam a mesma biblioteca ou componente, o Bit ajuda a gerenciar essas dependências compartilhadas para evitar duplicação e reduzir o tamanho do bundle. Dependências compartilhadas são consistentes em toda a aplicação, permitindo que **micro frontends individuais atualizem de forma independente**.
+
+![1_x0OdtplgZVhwiIgDT5A2bg](https://github.com/user-attachments/assets/c790273e-a87b-4838-9dfd-ce7516122409)
+
+Exemplo: Um sistema de design ou uma biblioteca utilitária usada por múltiplas micro frontends pode ser compartilhada como um componente de Bits. Esse componente compartilhado é versionado e mantido em um repositório central, facilitando para as equipes extrair a versão mais recente ou reverter para versões anteriores conforme necessário.
+
+2. **Integração com Pipelines CI/CD**: O <a href="https://youtu.be/eOAjPnfGcbc">bit</a> se integra perfeitamente com pipelines CI/CD, automatizando o processo de teste, construção e implantação de componentes à medida que são atualizados. Essa integração garante que todas as versões de um componente sejam minuciosamente testadas antes de entrar no mercado, reduzindo o risco de introduzir bugs ou alterações quebradas no ambiente de produção.
+
+Você pode até <a href="https://youtu.be/PZ2MhC5N6uI">automatizar atualizações de PR</a> para seus repositórios do GitHub:
+
+Exemplo: Quando uma nova versão de um micro frontend é enviada para Bit, o pipeline CI/CD automaticamente dispara testes, constrói o componente e o prepara para implantação. Se todas as verificações passarem, a nova versão é marcada e lançada; caso contrário, a implantação é interrompida, impedindo que possíveis problemas cheguem aos usuários.
+
+3. **Integrações e Atualizações em Tempo de Execução vs Tempo de Construção**: A decisão entre integrações em tempo de execução e em tempo de construção impacta a flexibilidade e escalabilidade das arquiteturas micro frontend. A integração em tempo de execução permite composição dinâmica e atualizações, enquanto a integração em tempo de construção envolve compilar tudo em um único pacote, o que pode limitar a flexibilidade, mas oferece alto desempenho e uma boa experiência de desenvolvimento.
+
+Como cada componente é um pacote ou módulo independente, com sua própria versão, torna-se possível atualizar componentes específicos (e seus dependentes impactados) sem precisar atualizar o restante do projeto.
+
+![1_Gdf4FWXtf5cpoGbe38dZGw](https://github.com/user-attachments/assets/cb4d7933-7e45-4526-b087-8400991e9f76)
+
+O Bit suporta ambos os tipos de integrações e permite que você escolha qual é a mais adequada para você. Ele roda nativamente com a <a href="https://bit.dev/docs/micro-frontends/module-federation">Module-Federation</a>, assim como com todos os gerenciadores de pacotes ou registros.
+
+Por exemplo, aqui estão algumas demonstrações de integração e atualização de componentes de Bits usando <a href="https://youtu.be/dWPp4EsScsg">Module-Federation</a>: E um mergulho nas implantações deles nesse cenário com federação de módulos:
+
+Ao mesmo tempo, todo componente exportado para <a href="https://bit.cloud/">bit.cloud</a> já é um pacote — isso acontece automaticamente quando você marca e exporta o componente. Ou seja, você pode instalá-lo usando qualquer gerenciador de pacotes ou registro (incluindo o JFrog Artifactory), e pode encontrar esse painel em cada página de componentes, na aba "usar":
+
+![1_Z_V4tECHnCBWuT38-du0og](https://github.com/user-attachments/assets/f09f0884-dd91-49d7-815a-8ce767c528ec)
+
+**Implantações Independentes**: Micro frontends devem ser implantáveis de forma independente, permitindo que diferentes partes da aplicação evoluam e sejam lançadas em seu próprio ritmo, sem necessidade de sincronização com outros componentes.
+
+A arquitetura modular do Bit permite que cada componente ou micro frontend seja implantado de forma independente. O bit se integra perfeitamente com a Webpack Module Federation, permitindo que componentes sejam carregados sob demanda em tempo de execução. Isso desacopla o processo de implantação do restante da aplicação, permitindo implantações rápidas e autônomas.
+
+6. **Micro Frontends Compartilhados via Plataforma Central**
+
+![1_Nj2EzGOskF51B5AKuR-szw](https://github.com/user-attachments/assets/83345736-1b36-4c21-94b3-59df19e163b0)
+
+**6.1 Plataforma central**: Bit.cloud é uma plataforma central para componentes compartilhados (por exemplo, micro frontends). Oferece hospedagem em nuvem, nuvem privada e versões baseadas em servidores locais. A Bit Cloud é uma plataforma de ponta a ponta para desenvolvimento orientado a componentes, que permite um fluxo de trabalho simplificado e completo para criar, compartilhar, descobrir, consumir, alterar e atualizar componentes. Essa é uma parte fundamental para adotar com sucesso micro frontends em um ambiente organizacional e em escala. Ele pode ser integrado e conectado às suas ferramentas e fluxos de trabalho, como GitHub ou Artifactory, assim como Figma e até suas ferramentas CI/CD.
+
+Seus micro frontends podem ser hospedados na sua conta privada, na conta da sua organização e divididos em "Escopos" que servem como coleções de componentes com temas comuns, domínios de propriedade. Pode conferir:
+
+**6.2 Descoberta para micro frontends**: A Bit Cloud oferece uma plataforma robusta para descobrir componentes micro frontend compartilhados, facilitando para as equipes encontrarem, entenderem e escolherem os melhores componentes para seus projetos. Ele oferece capacidades avançadas de busca, permitindo que os usuários filtrem componentes com base em critérios específicos, como tags, dependências e versões. Isso ajuda os desenvolvedores a localizar rapidamente o componente exato que precisam.
+
+![1_Tm5yoSEOL9iI5g6sKnBZOQ](https://github.com/user-attachments/assets/71646530-344f-43b8-b15f-e058df0744c5)
+
+Além da funcionalidade de busca, o Bit Cloud aprimora a descoberta de componentes com exemplos visuais e documentação gerada automaticamente. A página de cada componente apresenta documentação detalhada, incluindo instruções de uso, mapas de dependências e composições visuais que mostram o componente em vários estados e contextos. Essas composições simulam o comportamento do componente, ajudando desenvolvedores e não desenvolvedores (como designers) a entender como o componente funciona e como pode ser integrado a diferentes projetos.
+
+**6.3 Análises para status, uso e adoção**: Um dos aspectos mais importantes do desenvolvimento de escalabilidade com micro frontends compartilhados ou qualquer outro tipo de componente é a capacidade de acompanhar seu uso, adoção, tech-stacks, status e todos os outros parâmetros importantes que ajudam a governar e gerenciar esses blocos de construção.
+
+![1_ifIl5rsjLcBQMt35AgQneA](https://github.com/user-attachments/assets/30954407-481a-43f1-afcd-144656c28728)
+
+Em Bit.Cloud você pode visualizar as dependências diretas e indiretas de cada componente (ou Scope), o uso em diferentes projetos, atualizações de versões, tecnologias usadas e mais.
+
+![1_5e9sCgtNi0H4qw6uYUUntA](https://github.com/user-attachments/assets/a1462ac8-dfba-4a79-8f99-c4b43890fe19)
+
+**7. Desenvolvimento Colaborativo**: Arquiteturas micro frontend eficazes exigem colaboração entre equipes e também dentro de equipes multifuncionais. Os construtores precisam ser capazes de trabalhar juntos de forma fluida, mesmo ao desenvolver diferentes partes da aplicação, enquanto trabalham juntos para planejar, revisar e lançar.
+
+O bit é projetado para permitir colaboração.
+
+Por exemplo, novas versões para componentes podem ser sugeridas por meio de "requests-change", onde os membros da equipe revisora podem ver alterações de código, pré-visualizações visuais, alterações em testes, dependências e muito mais. Eles podem discutir e aprovar essas mudanças diretamente na tela de solicitação de mudança.
+
+![1_w5hNbKpy543M2JZgB_HMHA](https://github.com/user-attachments/assets/b175d89a-0a4e-4d5c-a000-5f29cb613127)
+
+Além disso, componentes podem ser facilmente importados para o seu espaço de trabalho local para edição e alterações, o que facilita muito a colaboração em componentes, sugestões de alterações, entrega de atualizações e a sincronização.
+
+![1_pxpN_mgePkf1ecsPn1NV0w](https://github.com/user-attachments/assets/e190ddde-acb3-4df5-8cf4-8c5c12d8bb50)
+
+Esse ambiente colaborativo acelera o desenvolvimento e garante que todas as equipes estejam alinhadas, a tecnologia seja padronizada e a UX/UI permaneça consistente.
+
+**8. Equipes Autônomas**: Equipes que trabalham em diferentes micro frontends devem operar de forma autônoma, com controle total sobre seus respectivos domínios. Essa autonomia é crucial para fomentar a inovação e reduzir gargalos no processo de desenvolvimento.
+
+![1_Lj5tkND0DLFUDuUokKGyHA](https://github.com/user-attachments/assets/05fa79d6-3107-4dc6-a986-c5027f33ce2c)
+
+As equipes possuem e entregam microfrontends orientados por domínio
+
+A plataforma da Bit apoia equipes autônomas fornecendo as ferramentas para desenvolver, testar e implantar seus componentes de forma independente. Cada equipe pode gerenciar seus próprios fluxos de trabalho, do desenvolvimento à implantação, sem precisar coordenar com outras equipes. Essa autonomia é aprimorada pelo suporte do Bit para versionamento independente, implantação e integração em tempo de execução, permitindo que as equipes avancem rápido e inovem livremente.
+
+**9. Múltiplas Pilhas de Tecnologia**: Micro frontends são particularmente poderosos em organizações onde diferentes equipes preferem usar stacks tecnológicos distintos. Essa flexibilidade permite que cada equipe selecione as melhores ferramentas e frameworks para os recursos específicos que está desenvolvendo. Por exemplo, uma equipe pode usar o React para um painel de usuário, outra pode optar pelo Angular para lidar com formulários complexos, enquanto outra equipe pode aproveitar Vue.js para componentes leves e de carregamento rápido, como barras de navegação.
+
+![1_EoVFwzwDO4wwzD1Ip2HI4Q](https://github.com/user-attachments/assets/296b06fe-e909-416f-9330-4847dcd20dfd)
+
+Muitos componentes, muitas tecnologias, uma única plataforma
+
+O Bit desempenha um papel crucial na gestão dessas pilhas diversas por meio de seus Ambientes Componentes. Ambientes de bits são extensões que configuram e gerenciam as ferramentas e fluxos de trabalho de desenvolvimento específicos para cada framework ou pilha tecnológica. Ao trabalhar em um espaço de trabalho gerenciado por bits, as equipes podem criar ambientes personalizados para React, Angular, Vue.js ou qualquer outra pilha tecnológica que estejam utilizando. Esses ambientes garantem que cada componente seja isolado e desenvolvido em um ambiente consistente, independentemente da tecnologia subjacente.
+
+Por exemplo, um ambiente componente React no Bit pode incluir configurações para ESLint, Jest e Webpack, enquanto um ambiente Angular pode configurar TypeScript, Karma e Angular CLI. Isso permite que cada equipe foque no desenvolvimento sem se preocupar com conflitos entre pilhas, já que a Bit cuida da integração e garante que cada componente seja compatível quando combinado em uma aplicação maior.
+
+Além disso, ambientes de bits suportam Cápsulas, que criam ambientes de desenvolvimento isolados para componentes. Isso significa que cada componente pode ser desenvolvido, testado e construído completamente isolado do restante da base de código, garantindo que problemas como conflitos de dependência ou vazamentos globais de estado sejam detectados cedo.
+
+**10. Shell de Aplicação**: Um **App Shell** (<a href="https://blog.bitsrc.io/application-shell-for-react-micro-frontends-daa944caa8f3?source=post_page-----28f78ce825ad---------------------------------------">Application Shell</a>) é uma estrutura estática que carrega primeiro e fornece a estrutura central de um aplicativo web, incluindo elementos de interface compartilhados como cabeçalhos e barras de navegação. Em uma arquitetura de micro frontend, o shell do aplicativo garante uma interface de usuário consistente enquanto carrega dinamicamente micro frontends.
+
+<table>
+	<tr>
+		<td><img src="https://github.com/user-attachments/assets/2e9b9ef6-b8c2-4fa5-9fe3-32c412937419"></td>
+		<td><img src="https://github.com/user-attachments/assets/732e7167-5a6f-4664-9aef-f0940d5d91b1"></td>
+	</tr>
+</table>
+
+A interface do app serve como uma base estável, gerenciando o roteamento e o estado enquanto micro frontends são carregados de forma independente. Essa separação permite que cada micro frontend seja desenvolvido e implantado sem impactar a aplicação como um todo.
+
+<table>
+	<tr>
+		<td><img src="https://github.com/user-attachments/assets/b9d70155-f659-4257-8f31-b27c0009983a"></td>
+		<td><img src="https://github.com/user-attachments/assets/1802a081-ea81-4907-be4f-df3c52c3b860"></td>
+		<td><img src="https://github.com/user-attachments/assets/de428084-ea2c-4521-90cf-06720ad5a944"></td>
+	</tr>
+</table>
+
+A estrutura da solução ModFed. A organização de bits que mantém a solução MFEs. Os repositórios que mantêm os espaços de trabalho de bits para os componentes compartilhados, o app host e os módulos remotos
+
+- Desenvolvimento Independente: O Bit possibilita a criação de shells de aplicativos e micro frontends como componentes separados, possibilitando que sejam desenvolvidos, versionados e implantados de forma independente.
+- Integração dinâmica: Usando a Federação de Módulos do Webpack, o Bit permite que micro frontends sejam carregados dinamicamente na interface do app, garantindo integração suave em tempo de execução.
+- Gestão Centralizada: O Bit Cloud centraliza o armazenamento e a gestão de shells de aplicativos e micro frontends, facilitando a descoberta, atualização e compartilhamento de componentes em toda a organização(
+
+Em essência, o Bit suporta a integração perfeita e o gerenciamento independente de shells de aplicativos e micro frontends, garantindo consistência e flexibilidade em aplicações web complexas. Aqui está um exemplo:
