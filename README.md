@@ -80,6 +80,8 @@ Uma plataforma dedicada estabelece as bases para que CDD e composabilidade sejam
 
 **Capacidades necessárias de uma plataforma de CDD e composição de aplicativos**: Para permitir o desenvolvimento bem-sucedido de aplicações por meio de componentes componíveis e escalar esse processo de forma eficaz na organização, é necessária uma longa lista de capacidades críticas.
 
+![Screenshot_20251210-113118_Instagram](https://github.com/user-attachments/assets/8811230b-4da8-44b8-b1ee-ae6872e7ac1f)
+
 ## [Microfrontend] Component-based
 **Component-based** é uma abordagem de arquitetura de software onde os sistemas são construídos a partir de unidades modulares e reutilizáveis chamadas **componentes**. Cada componente é uma entidade funcional independente, encapsulando dados, lógica de negócio e comportamento, podendo ser desenvolvido, testado e mantido de forma isolada. O principal objetivo do component-based é promover reutilização, manutenção facilitada, escalabilidade e separação de preocupações. Em vez de criar sistemas como blocos monolíticos de código interdependente, o component-based permite montar aplicações como se fossem conjuntos de peças de Lego, onde cada peça realiza uma função específica e pode ser substituída ou atualizada sem impactar o todo, desde que sua interface permaneça a mesma.
 
