@@ -583,7 +583,8 @@ A estrutura da solução ModFed. A organização de bits que mantém a solução
 Em essência, o Bit suporta a integração perfeita e o gerenciamento independente de shells de aplicativos e micro frontends, garantindo consistência e flexibilidade em aplicações web complexas. Aqui está um exemplo:
 
 
-# [Microfrontends] Nx
+## [Microfrontends] Nx
+
 # CustomMfe
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
