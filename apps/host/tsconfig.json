@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "paths": {
+      "*": [
+        "apps/host/@mf-types/*"
+      ],
+      "@custom-mfe/logger": [
+        "packages/logger/src/index.ts"
+      ],
+      "@custom-mfe/store": [
+        "packages/store/src/index.ts"
+      ]
+    }
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json"
+}
