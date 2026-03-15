@@ -7,7 +7,9 @@ Talvez você já tenha ouvido falar sobre o conceito de microserviços. Aquele n
 
 Mas e se quisermos dividir também o front-end em partes menores e independentes, pois o desenvolvimento de softwares para web está em constante mudança, para acompanhar as crescentes demandas de escalabilidade, manutenção e performance. Nesse sentido, uma das grades evoluções é o conceito de Aplicações _Micro Front-end_.
 
-A técnica de **micro front-end** se baseia na fragmentação de projetos extensos e complexos (conhecidos como monolitos) em elementos menores e mais simplificados. Esses elementos podem ser desenvolvidos, implantados e mantidos independentemente uns dos outros, enquanto são apresentados ao usuário final como um produto único e integrado. Micro frontends são uma abordagem de desenvolvimento frontend que divide uma aplicação em componentes menores, independentes e reutilizáveis, que podem ser desenvolvidos, testados e implantados separadamente. Essa abordagem, inspirada nos microserviços do backend, permite que diferentes equipes trabalhem em partes distintas da aplicação, acelerando o desenvolvimento e melhorando a escalabilidade. 
+A técnica de **micro front-end** se baseia na fragmentação de projetos extensos e complexos (conhecidos como monolitos) em elementos menores e mais simplificados. Esses elementos podem ser desenvolvidos, implantados e mantidos independentemente uns dos outros, enquanto são apresentados ao usuário final como um produto único e integrado. 
+
+Micro frontends são uma abordagem de desenvolvimento frontend que divide uma aplicação em componentes menores, independentes e reutilizáveis, que podem ser desenvolvidos, testados e implantados separadamente. Essa abordagem, inspirada nos microserviços do backend, permite que diferentes equipes trabalhem em partes distintas da aplicação, acelerando o desenvolvimento e melhorando a escalabilidade. 
 
 > **Micro front-end** é uma abordagem de arquitetura de software para desenvolvimento web inspirada em padrões de **micro-serviços**. Ou seja, estamos construindo aplicativos componíveis de forma orquestrada e escalável usando uma plataforma de desenvolvimento orientada a componentes (CDD - Component-Driven Development). Ao longo da minha carreira, testemunhei os desafios das arquiteturas monolíticas de front-end e o poder transformador dos microfront-ends.
 
@@ -15,6 +17,8 @@ A técnica de **micro front-end** se baseia na fragmentação de projetos extens
 > "Ajudar desenvolvedores a trabalharem de forma mais inteligente e rápida, com uma abordagem compartilhável e de blocos de construção para criar experiências consistentes é central para o foco moderno e centrado no cliente da Dell Digital. Compartilhar componentes capacita os desenvolvedores a desenvolver e lançar recursos de forma mais rápida e consistente. Eles podem publicar e acessar componentes e recursos de UX aplicáveis em diversas experiências digitais.
 >
 > Antes, os desenvolvedores ficavam realmente frustrados por ter que escrever aparentemente um milhão de linhas de código repetidamente, descobrindo detalhes e fazendo os testes. Com componentes prontamente disponíveis, agora podem se desenvolver e entregar em um quarto do tempo que levavam antes. Agora eles podem investir em um desenvolvimento de recursos mais inovadores." <a href="https://www.dell.com/en-us/blog/a-shared-building-block-approach-to-better-user-experience/">Líder de Transformação Tecnológica na Dell, Bit Platform</a>
+
+<img width="511" height="692" alt="Captura de tela 2025-11-18 143946" src="https://github.com/user-attachments/assets/1fdae87d-deae-41e7-be47-fa7c54e9f9c8" />
 
 <a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" align="left"></a>
 
@@ -75,6 +79,8 @@ Embora o conjunto de ferramentas de desenvolvimento orientado a projetos do pass
 Uma plataforma dedicada estabelece as bases para que CDD e composabilidade sejam aplicadas e escaladas com sucesso, ao mesmo tempo em que fornece todas as capacidades necessárias em um único fluxo de trabalho. Isso reduz o tempo e o custo de construir e corrigir ferramentas para resolver uma longa lista de capacidades (que pode levar anos e milhões de dólares), e elimina o risco de enfrentar desafios e questões complexas.
 
 **Capacidades necessárias de uma plataforma de CDD e composição de aplicativos**: Para permitir o desenvolvimento bem-sucedido de aplicações por meio de componentes componíveis e escalar esse processo de forma eficaz na organização, é necessária uma longa lista de capacidades críticas.
+
+![Screenshot_20251210-113118_Instagram](https://github.com/user-attachments/assets/8811230b-4da8-44b8-b1ee-ae6872e7ac1f)
 
 ## [Microfrontend] Component-based
 **Component-based** é uma abordagem de arquitetura de software onde os sistemas são construídos a partir de unidades modulares e reutilizáveis chamadas **componentes**. Cada componente é uma entidade funcional independente, encapsulando dados, lógica de negócio e comportamento, podendo ser desenvolvido, testado e mantido de forma isolada. O principal objetivo do component-based é promover reutilização, manutenção facilitada, escalabilidade e separação de preocupações. Em vez de criar sistemas como blocos monolíticos de código interdependente, o component-based permite montar aplicações como se fossem conjuntos de peças de Lego, onde cada peça realiza uma função específica e pode ser substituída ou atualizada sem impactar o todo, desde que sua interface permaneça a mesma.
