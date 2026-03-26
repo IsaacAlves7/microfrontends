@@ -117,8 +117,6 @@ Uma plataforma dedicada estabelece as bases para que CDD e composabilidade sejam
 
 **Capacidades necessárias de uma plataforma de CDD e composição de aplicativos**: Para permitir o desenvolvimento bem-sucedido de aplicações por meio de componentes componíveis e escalar esse processo de forma eficaz na organização, é necessária uma longa lista de capacidades críticas.
 
-![Screenshot_20251210-113118_Instagram](https://github.com/user-attachments/assets/8811230b-4da8-44b8-b1ee-ae6872e7ac1f)
-
 **Component-based** é uma abordagem de arquitetura de software onde os sistemas são construídos a partir de unidades modulares e reutilizáveis chamadas **componentes**. Cada componente é uma entidade funcional independente, encapsulando dados, lógica de negócio e comportamento, podendo ser desenvolvido, testado e mantido de forma isolada. O principal objetivo do component-based é promover reutilização, manutenção facilitada, escalabilidade e separação de preocupações. Em vez de criar sistemas como blocos monolíticos de código interdependente, o component-based permite montar aplicações como se fossem conjuntos de peças de Lego, onde cada peça realiza uma função específica e pode ser substituída ou atualizada sem impactar o todo, desde que sua interface permaneça a mesma.
 
 Na prática, os componentes possuem interfaces bem definidas e comunicam-se entre si de forma controlada, muitas vezes por meio de eventos, injeção de dependência ou contratos formais de dados. Isso os torna altamente portáveis e adaptáveis a diferentes contextos. No front-end, esse conceito é amplamente adotado em frameworks como React, Angular e Vue, onde cada parte da interface — como botões, formulários ou tabelas — é um componente reutilizável. No back-end, esse paradigma também pode ser aplicado através de serviços encapsulados ou bibliotecas modulares que se integram em uma arquitetura maior. Em ambientes mais complexos, os componentes podem evoluir para microcomponentes ou micro frontends, refletindo a mesma filosofia de modularidade.
@@ -132,6 +130,240 @@ Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por 
 Deixe-me mostrar o que quero dizer. Suponha uma aplicação que consiste em armazenamentos independentes dedicados a serviços backend, que são então conectados aos seus próprios serviços frontend, e então há essa camada fina de composição por cima de tudo. É assim que a arquitetura da aplicação em que estou trabalhando se parece, é claro, representada de forma muito, muito simplificada. Quando colocamos isso no contexto da nossa organização e adicionamos equipes a esse diagrama, alguns dos benefícios dessa abordagem ficam muito claros.
 
 <img width="1280" height="1337" alt="microfrontend-app-architecture-with-teams" src="https://github.com/user-attachments/assets/9b9a56a3-d289-4812-853e-303136164b02" />
+
+## [Microfrontends] Nx
+<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77" align="right"></a>
+
+O **Nx** é um *build system* e ferramenta de gerenciamento de **monorepo** focada em projetos modernos principalmente front-end, mas também back-end. Ele nasceu dentro do ecossistema Angular, mas hoje funciona muito bem com React, Vue.js, Node.js e até stacks fullstack.
+
+A ideia central do Nx não é só “organizar código”, mas organizar como o código evolui e é construído. Ele entende dependências entre projetos, executa builds de forma inteligente (só o que mudou), faz cache de tarefas e permite escalar um código grande sem virar bagunça. Em vez de vários repositórios isolados, você tem um único repositório com múltiplos apps e libs bem estruturados.
+
+Agora, trazendo isso pro contexto de *microfrontends*, o Nx encaixa quase que perfeitamente.
+
+Microfrontends é basicamente aplicar a ideia de microservices no front-end: dividir uma aplicação grande em partes independentes, que podem ser desenvolvidas e até deployadas separadamente. O problema é que isso pode virar um caos rápido — múltiplos repositórios, dependências duplicadas, inconsistência de versões, pipelines diferentes, etc.
+
+É aí que o Nx entra como “cola arquitetural”. Com Nx, você pode ter um **monorepo contendo vários microfrontends**, por exemplo:
+
+* um app “host” (container)
+* vários apps “remotos” (features independentes)
+* bibliotecas compartilhadas (UI, utilitários, estado, etc.)
+
+E tudo isso dentro de um único workspace, com controle de dependência explícito.
+
+Um padrão muito comum aqui é usar **Module Federation** do Webpack junto com Nx. Isso permite que os microfrontends sejam carregados dinamicamente em runtime, mantendo independência entre eles.
+
+Um exemplo simplificado de estrutura no Nx seria algo assim:
+
+```plaintext
+apps/
+  shell/           # app principal (host)
+  products/        # microfrontend de produtos
+  cart/            # microfrontend de carrinho
+
+libs/
+  ui/              # componentes compartilhados
+  auth/            # autenticação
+  utils/           # helpers
+```
+
+Aqui cada `apps/*` pode ser um microfrontend independente, mas o Nx garante:
+
+* consistência de dependências
+* compartilhamento eficiente de código
+* builds otimizados (só o que mudou)
+* testes e lint organizados por escopo
+
+E tem um detalhe muito forte: o Nx entende o **grafo de dependências** do seu sistema. Ele sabe quem depende de quem. Isso é ouro em microfrontends, porque evita acoplamento acidental — um dos maiores problemas nesse tipo de arquitetura.
+
+Outro ponto importante é que o Nx facilita o que chamam de **“incremental adoption”**. Você não precisa nascer com microfrontends. Pode começar com um monolito front-end (tipo um SPA grande) e ir quebrando em microfrontends aos poucos, mantendo tudo no mesmo repositório.
+
+Então, conectando com tudo que você vem estudando:
+se microservices podem cair no problema de nanoservices, microfrontends também podem cair no mesmo erro — fragmentação excessiva. O Nx ajuda justamente a evitar isso, porque ele incentiva organização por domínio e reutilização consciente, em vez de simplesmente sair quebrando tudo.
+
+Resumindo no nível mais arquitetural:
+o **Nx não é um framework de microfrontend**, ele é uma **plataforma de organização e orquestração de código** que torna viável escalar microfrontends sem perder controle.
+
+Se quiser, posso te mostrar um exemplo real com Module Federation + Nx + React, incluindo como um microfrontend é carregado dinamicamente — isso fecha 100% o entendimento.
+
+
+CustomMfe
+✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+
+[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+
+Finish your CI setup
+
+[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/UvOV0i1pmI)
+
+Run tasks
+
+To run the dev server for your app, use:
+
+```sh
+npx nx serve custom-mfe
+```
+
+To create a production bundle:
+
+```sh
+npx nx build custom-mfe
+```
+
+To see all available targets to run for a project, run:
+
+```sh
+npx nx show project custom-mfe
+```
+
+These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+
+[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+Add new projects
+
+While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+
+Use the plugin's generator to create new projects.
+
+To generate a new application, use:
+
+```sh
+npx nx g @nx/react:app demo
+```
+
+To generate a new library, use:
+
+```sh
+npx nx g @nx/react:lib mylib
+```
+
+You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+
+[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+
+[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+Install Nx Console
+
+Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+
+[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+Useful links
+
+Learn more:
+
+- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
+- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+And join the Nx community:
+- [Discord](https://go.nx.dev/community)
+- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
+- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
+- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## [Microfrontend] Eventos e Estados
+![Screenshot_20251210-113118_Instagram](https://github.com/user-attachments/assets/8811230b-4da8-44b8-b1ee-ae6872e7ac1f)
+
+Quando você entra em microfrontends, o maior desafio deixa de ser só “dividir a aplicação” e passa a ser **como essas partes conversam e compartilham estado sem virar um monolito distribuído no front-end** — exatamente o mesmo problema que você já enxergou no backend com microservices vs nanoservices.
+
+Eventos e estado são as duas formas principais de resolver isso, e cada uma tem implicações arquiteturais bem diferentes.
+
+Começando por **eventos**, a ideia é muito parecida com o que você viu em arquiteturas orientadas a eventos no backend. Em vez de um microfrontend chamar diretamente outro, ele **emite um evento** dizendo que algo aconteceu, e quem estiver interessado reage.
+
+Imagina um cenário simples: um microfrontend de login e outro de header.
+
+Quando o usuário faz login, o microfrontend de auth não chama diretamente o header. Ele dispara algo como:
+
+```javascript
+window.dispatchEvent(
+  new CustomEvent("user:loggedIn", { detail: user })
+);
+```
+
+E o header escuta:
+
+```javascript
+window.addEventListener("user:loggedIn", (event) => {
+  setUser(event.detail);
+});
+```
+
+Aqui você tem um modelo desacoplado. Um microfrontend não precisa conhecer o outro, só o “contrato” do evento. Isso é basicamente pub/sub no browser.
+
+Esse padrão escala bem, mas tem um custo: conforme o sistema cresce, você começa a ter muitos eventos, difícil rastrear quem dispara e quem consome. Sem governança, vira um “event spaghetti”.
+
+Agora entra o segundo eixo: **estado compartilhado**.
+
+Aqui você faz o oposto: em vez de espalhar eventos, você centraliza o estado em algum lugar e todos os microfrontends leem/escrevem nele. Isso pode ser feito com ferramentas como Redux, ou até soluções mais leves baseadas em store global.
+
+Exemplo simplificado:
+
+```javascript
+// store.js
+let state = { user: null };
+let listeners = [];
+
+export function setState(newState) {
+  state = { ...state, ...newState };
+  listeners.forEach((l) => l(state));
+}
+
+export function subscribe(listener) {
+  listeners.push(listener);
+}
+```
+
+Cada microfrontend pode consumir:
+
+```javascript
+subscribe((state) => {
+  console.log("Estado atualizado:", state.user);
+});
+```
+
+Aqui você tem consistência, previsibilidade, e menos “caos de eventos”. Mas também tem um risco: você criou um **acoplamento global**. Todos dependem do mesmo estado.
+
+Agora vem o ponto mais importante — o equilíbrio entre os dois.
+
+Microfrontends maduros geralmente não escolhem só um modelo. Eles combinam:
+
+– **eventos para comunicação entre domínios** (ex: “pedido criado”, “usuário logado”)
+– **estado compartilhado para dados realmente globais** (ex: usuário, tema, feature flags)
+
+Isso é praticamente a mesma divisão que você vê no backend entre:
+
+* eventos (Kafka, RabbitMQ)
+* banco de dados / cache compartilhado
+
+E existe ainda um terceiro modelo, que muita gente usa sem perceber: o **estado via URL**.
+
+Exemplo:
+
+```plaintext
+/products?category=electronics
+```
+
+Diferentes microfrontends leem isso e reagem. Isso evita tanto evento quanto estado global, e funciona muito bem para navegação.
+
+Outro ponto avançado: quando você usa ferramentas como Webpack com Module Federation ou Nx, você pode compartilhar dependências (como uma store do Redux) entre microfrontends. Mas isso precisa ser feito com muito cuidado, porque pode quebrar o isolamento.
+
+Agora conectando com tudo que você vem estudando:
+se você usar eventos demais, você cria algo parecido com EDA mal governado.
+se usar estado global demais, você cria um monolito disfarçado.
+
+O design correto geralmente segue essa lógica:
+
+* microfrontends são isolados por domínio (DDD)
+* compartilham o mínimo possível de estado
+* comunicam mudanças importantes via eventos
+* evitam dependência direta entre si
+
+Resumo direto, no teu estilo: eventos são desacoplados, mas difíceis de rastrear; estado global é simples, mas acopla tudo. Arquitetura madura de microfrontends usa os dois com critério, senão você recria no front-end os mesmos problemas que já existem no backend distribuído.
+
 
 ## [Microfrontend] Bit e Bit Cloud
 <a href="https://bit.dev/"><img src="https://github.com/user-attachments/assets/bae1537b-cdba-495a-8d04-b5d2ecbdc681" align="right" height="177"></a>
@@ -687,141 +919,6 @@ A estrutura da solução ModFed. A organização de bits que mantém a solução
 - Gestão Centralizada: O Bit Cloud centraliza o armazenamento e a gestão de shells de aplicativos e micro frontends, facilitando a descoberta, atualização e compartilhamento de componentes em toda a organização(
 
 Em essência, o Bit suporta a integração perfeita e o gerenciamento independente de shells de aplicativos e micro frontends, garantindo consistência e flexibilidade em aplicações web complexas. Aqui está um exemplo:
-
-
-## [Microfrontends] Nx
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77" align="right"></a>
-
-O **Nx** é um *build system* e ferramenta de gerenciamento de **monorepo** focada em projetos modernos principalmente front-end, mas também back-end. Ele nasceu dentro do ecossistema Angular, mas hoje funciona muito bem com React, Vue.js, Node.js e até stacks fullstack.
-
-A ideia central do Nx não é só “organizar código”, mas organizar como o código evolui e é construído. Ele entende dependências entre projetos, executa builds de forma inteligente (só o que mudou), faz cache de tarefas e permite escalar um código grande sem virar bagunça. Em vez de vários repositórios isolados, você tem um único repositório com múltiplos apps e libs bem estruturados.
-
-Agora, trazendo isso pro contexto de *microfrontends*, o Nx encaixa quase que perfeitamente.
-
-Microfrontends é basicamente aplicar a ideia de microservices no front-end: dividir uma aplicação grande em partes independentes, que podem ser desenvolvidas e até deployadas separadamente. O problema é que isso pode virar um caos rápido — múltiplos repositórios, dependências duplicadas, inconsistência de versões, pipelines diferentes, etc.
-
-É aí que o Nx entra como “cola arquitetural”. Com Nx, você pode ter um **monorepo contendo vários microfrontends**, por exemplo:
-
-* um app “host” (container)
-* vários apps “remotos” (features independentes)
-* bibliotecas compartilhadas (UI, utilitários, estado, etc.)
-
-E tudo isso dentro de um único workspace, com controle de dependência explícito.
-
-Um padrão muito comum aqui é usar **Module Federation** do Webpack junto com Nx. Isso permite que os microfrontends sejam carregados dinamicamente em runtime, mantendo independência entre eles.
-
-Um exemplo simplificado de estrutura no Nx seria algo assim:
-
-```plaintext
-apps/
-  shell/           # app principal (host)
-  products/        # microfrontend de produtos
-  cart/            # microfrontend de carrinho
-
-libs/
-  ui/              # componentes compartilhados
-  auth/            # autenticação
-  utils/           # helpers
-```
-
-Aqui cada `apps/*` pode ser um microfrontend independente, mas o Nx garante:
-
-* consistência de dependências
-* compartilhamento eficiente de código
-* builds otimizados (só o que mudou)
-* testes e lint organizados por escopo
-
-E tem um detalhe muito forte: o Nx entende o **grafo de dependências** do seu sistema. Ele sabe quem depende de quem. Isso é ouro em microfrontends, porque evita acoplamento acidental — um dos maiores problemas nesse tipo de arquitetura.
-
-Outro ponto importante é que o Nx facilita o que chamam de **“incremental adoption”**. Você não precisa nascer com microfrontends. Pode começar com um monolito front-end (tipo um SPA grande) e ir quebrando em microfrontends aos poucos, mantendo tudo no mesmo repositório.
-
-Então, conectando com tudo que você vem estudando:
-se microservices podem cair no problema de nanoservices, microfrontends também podem cair no mesmo erro — fragmentação excessiva. O Nx ajuda justamente a evitar isso, porque ele incentiva organização por domínio e reutilização consciente, em vez de simplesmente sair quebrando tudo.
-
-Resumindo no nível mais arquitetural:
-o **Nx não é um framework de microfrontend**, ele é uma **plataforma de organização e orquestração de código** que torna viável escalar microfrontends sem perder controle.
-
-Se quiser, posso te mostrar um exemplo real com Module Federation + Nx + React, incluindo como um microfrontend é carregado dinamicamente — isso fecha 100% o entendimento.
-
-
-CustomMfe
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
-
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
-
-Finish your CI setup
-
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/UvOV0i1pmI)
-
-Run tasks
-
-To run the dev server for your app, use:
-
-```sh
-npx nx serve custom-mfe
-```
-
-To create a production bundle:
-
-```sh
-npx nx build custom-mfe
-```
-
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project custom-mfe
-```
-
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 ## [Microfrontends] Frameworks de Micro Frontend
 À medida que as aplicações web continuam a crescer em tamanho e complexidade, os desenvolvedores estão constantemente buscando novas formas de construí-las e mantê-las de forma eficiente. 
