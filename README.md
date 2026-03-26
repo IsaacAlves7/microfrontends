@@ -1,8 +1,6 @@
 # 🎨 Micro-Frontends
 <img src="https://img.shields.io/badge/Figma-features-tomato?style=flat&logo=Figma&logoColor=white"> <img src="https://img.shields.io/badge/Vue.js-SPA-339933?style=flat&logo=Vue.js&logoColor=white"> <img src="https://img.shields.io/badge/Angular-SPA-CC342D?style=flat&logo=Angular&logoColor=white"> <img src="https://img.shields.io/badge/Angular-3.3-CC342D?style=flat&logo=Angular&logoColor=white"> <a href="https://blog.bitsrc.io/top-9-react-component-libraries-for-2025-a11139b3ed2e?source=post_page---author_recirc--df10edf0e8d0----0---------------------1744195f_55d3_428f_b6fa_370d3ddc78c4--------------"><img src="https://img.shields.io/badge/React-SPA-00ADD8?style=flat&logo=React&logoColor=white"></a> <a href=""><img src="https://img.shields.io/badge/Vite-23-violet?style=flat&logo=Vite&logoColor=white"></a> <img src="https://img.shields.io/badge/Blazor-8.0.300-512BD4?style=flat&logo=Blazor&logoColor=white"> <img src="https://img.shields.io/badge/Svelte-SPA-orange?style=flat&logo=Svelte&logoColor=white">
 
-<a href="https://codepen.io/your-work"><img src="https://github.com/user-attachments/assets/3bb5bd0c-6941-4a95-80e7-6f3ba9d1f479" align="right" height="277"></a>
-
 Talvez você já tenha ouvido falar sobre o conceito de microserviços. Aquele negócio de dividir o back-end em partes menores, cada um com sua responsabilidade (SOLID). Porém, no front-end ainda é muito comum o uso de monolitos. 
 
 Mas e se quisermos dividir também o front-end em partes menores e independentes, pois o desenvolvimento de softwares para web está em constante mudança, para acompanhar as crescentes demandas de escalabilidade, manutenção e performance. Nesse sentido, uma das grades evoluções é o conceito de Aplicações _Micro Front-end_.
@@ -12,6 +10,13 @@ A técnica de **micro front-end** se baseia na fragmentação de projetos extens
 Micro frontends são uma abordagem de desenvolvimento frontend que divide uma aplicação em componentes menores, independentes e reutilizáveis, que podem ser desenvolvidos, testados e implantados separadamente. Essa abordagem, inspirada nos microserviços do backend, permite que diferentes equipes trabalhem em partes distintas da aplicação, acelerando o desenvolvimento e melhorando a escalabilidade. 
 
 > **Micro front-end** é uma abordagem de arquitetura de software para desenvolvimento web inspirada em padrões de **micro-serviços**. Ou seja, estamos construindo aplicativos componíveis de forma orquestrada e escalável usando uma plataforma de desenvolvimento orientada a componentes (CDD - Component-Driven Development). Ao longo da minha carreira, testemunhei os desafios das arquiteturas monolíticas de front-end e o poder transformador dos microfront-ends.
+
+<table>
+  <tr>
+    <td><a href="https://codepen.io/your-work"><img src="https://github.com/user-attachments/assets/3bb5bd0c-6941-4a95-80e7-6f3ba9d1f479" align="right" height="377"></a></td>
+    <td><img src="https://github.com/user-attachments/assets/9335f5b7-b920-4dc8-aff1-7d27226bb0fd" align="right" height="477"></td>
+  </tr>
+</table>
 
 > [!Tip]
 > "Ajudar desenvolvedores a trabalharem de forma mais inteligente e rápida, com uma abordagem compartilhável e de blocos de construção para criar experiências consistentes é central para o foco moderno e centrado no cliente da Dell Digital. Compartilhar componentes capacita os desenvolvedores a desenvolver e lançar recursos de forma mais rápida e consistente. Eles podem publicar e acessar componentes e recursos de UX aplicáveis em diversas experiências digitais.
@@ -135,8 +140,6 @@ Vamos explorar os principais requisitos para implementar com sucesso micro front
 Essa abordagem pode resultar em vários problemas, como falta de escalabilidade, dificuldades na manutenção de uma grande base de código e ciclos de desenvolvimento mais lentos.
 
 Por outro lado, aplicações de micro front-end, dividem o front-end em partes menores, independentes e que podem ser implantadas de forma separada, assim como os micro-serviços fazem para o back-end.
-
-<img src="https://github.com/user-attachments/assets/9335f5b7-b920-4dc8-aff1-7d27226bb0fd" align="right" height="377">
 
 Por exemplo: uma aplicação monolítica tradicional, a parte de front-end geralmente é uma única base de código responsável por toda a interface do usuário (conhecido como monólito). Considere a adoção de aplicações de micro front-end para aproveitar seu potencial, adotando assim uma abordagem moderna à criação de aplicações web. Nada melhor que detalhar essa explicação com um bom exemplo. A imagem abaixo (figura 1), demonstra um ótimo cenário para entendermos melhor este conceito:
 
