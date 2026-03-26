@@ -486,13 +486,13 @@ Como cada componente é um pacote ou módulo independente, com sua própria vers
 
 ![1_Gdf4FWXtf5cpoGbe38dZGw](https://github.com/user-attachments/assets/cb4d7933-7e45-4526-b087-8400991e9f76)
 
+<img src="https://github.com/user-attachments/assets/f09f0884-dd91-49d7-815a-8ce767c528ec" align="right">
+
 O Bit suporta ambos os tipos de integrações e permite que você escolha qual é a mais adequada para você. Ele roda nativamente com a <a href="https://bit.dev/docs/micro-frontends/module-federation">Module-Federation</a>, assim como com todos os gerenciadores de pacotes ou registros.
 
 Por exemplo, aqui estão algumas demonstrações de integração e atualização de componentes de Bits usando <a href="https://youtu.be/dWPp4EsScsg">Module-Federation</a>: E um mergulho nas implantações deles nesse cenário com federação de módulos:
 
 Ao mesmo tempo, todo componente exportado para <a href="https://bit.cloud/">bit.cloud</a> já é um pacote — isso acontece automaticamente quando você marca e exporta o componente. Ou seja, você pode instalá-lo usando qualquer gerenciador de pacotes ou registro (incluindo o JFrog Artifactory), e pode encontrar esse painel em cada página de componentes, na aba "usar":
-
-![1_Z_V4tECHnCBWuT38-du0og](https://github.com/user-attachments/assets/f09f0884-dd91-49d7-815a-8ce767c528ec)
 
 **Implantações Independentes**: Micro frontends devem ser implantáveis de forma independente, permitindo que diferentes partes da aplicação evoluam e sejam lançadas em seu próprio ritmo, sem necessidade de sincronização com outros componentes.
 
@@ -583,7 +583,61 @@ Em essência, o Bit suporta a integração perfeita e o gerenciamento independen
 
 
 ## [Microfrontends] Nx
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77"></a>
+<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77" align="right"></a>
+
+O **Nx** é um *build system* e ferramenta de gerenciamento de **monorepo** focada em projetos modernos principalmente front-end, mas também back-end. Ele nasceu dentro do ecossistema Angular, mas hoje funciona muito bem com React, Vue.js, Node.js e até stacks fullstack.
+
+A ideia central do Nx não é só “organizar código”, mas **organizar como o código evolui e é construído**. Ele entende dependências entre projetos, executa builds de forma inteligente (só o que mudou), faz cache de tarefas e permite escalar um código grande sem virar bagunça. Em vez de vários repositórios isolados, você tem um único repositório com múltiplos apps e libs bem estruturados.
+
+Agora, trazendo isso pro contexto de **microfrontends**, o Nx encaixa quase que perfeitamente.
+
+Microfrontends é basicamente aplicar a ideia de microservices no front-end: dividir uma aplicação grande em partes independentes, que podem ser desenvolvidas e até deployadas separadamente. O problema é que isso pode virar um caos rápido — múltiplos repositórios, dependências duplicadas, inconsistência de versões, pipelines diferentes, etc.
+
+É aí que o Nx entra como “cola arquitetural”.
+
+Com Nx, você pode ter um **monorepo contendo vários microfrontends**, por exemplo:
+
+* um app “host” (container)
+* vários apps “remotos” (features independentes)
+* bibliotecas compartilhadas (UI, utilitários, estado, etc.)
+
+E tudo isso dentro de um único workspace, com controle de dependência explícito.
+
+Um padrão muito comum aqui é usar **Module Federation** do Webpack junto com Nx. Isso permite que os microfrontends sejam carregados dinamicamente em runtime, mantendo independência entre eles.
+
+Um exemplo simplificado de estrutura no Nx seria algo assim:
+
+```plaintext
+apps/
+  shell/           # app principal (host)
+  products/        # microfrontend de produtos
+  cart/            # microfrontend de carrinho
+
+libs/
+  ui/              # componentes compartilhados
+  auth/            # autenticação
+  utils/           # helpers
+```
+
+Aqui cada `apps/*` pode ser um microfrontend independente, mas o Nx garante:
+
+* consistência de dependências
+* compartilhamento eficiente de código
+* builds otimizados (só o que mudou)
+* testes e lint organizados por escopo
+
+E tem um detalhe muito forte: o Nx entende o **grafo de dependências** do seu sistema. Ele sabe quem depende de quem. Isso é ouro em microfrontends, porque evita acoplamento acidental — um dos maiores problemas nesse tipo de arquitetura.
+
+Outro ponto importante é que o Nx facilita o que chamam de **“incremental adoption”**. Você não precisa nascer com microfrontends. Pode começar com um monolito front-end (tipo um SPA grande) e ir quebrando em microfrontends aos poucos, mantendo tudo no mesmo repositório.
+
+Então, conectando com tudo que você vem estudando:
+se microservices podem cair no problema de nanoservices, microfrontends também podem cair no mesmo erro — fragmentação excessiva. O Nx ajuda justamente a evitar isso, porque ele incentiva organização por domínio e reutilização consciente, em vez de simplesmente sair quebrando tudo.
+
+Resumindo no nível mais arquitetural:
+o **Nx não é um framework de microfrontend**, ele é uma **plataforma de organização e orquestração de código** que torna viável escalar microfrontends sem perder controle.
+
+Se quiser, posso te mostrar um exemplo real com Module Federation + Nx + React, incluindo como um microfrontend é carregado dinamicamente — isso fecha 100% o entendimento.
+
 
 CustomMfe
 ✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
