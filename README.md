@@ -173,13 +173,16 @@ libs/
   utils/           # helpers
 ```
 
-<img width="365" height="138" alt="images" src="https://github.com/user-attachments/assets/79515a5b-92e5-457b-92ba-d2ad41de3c96" />
-
 Aqui cada `apps/*` pode ser um microfrontend independente, mas o Nx garante:
 
+<img width="365" height="138" align="right" src="https://github.com/user-attachments/assets/79515a5b-92e5-457b-92ba-d2ad41de3c96" />
+
 * consistência de dependências
+
 * compartilhamento eficiente de código
+
 * builds otimizados (só o que mudou)
+
 * testes e lint organizados por escopo
 
 E tem um detalhe muito forte: o Nx entende o **grafo de dependências** do seu sistema. Ele sabe quem depende de quem. Isso é ouro em microfrontends, porque evita acoplamento acidental — um dos maiores problemas nesse tipo de arquitetura.
