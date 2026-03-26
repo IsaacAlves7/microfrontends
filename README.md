@@ -25,7 +25,7 @@ Micro frontends são uma abordagem de desenvolvimento frontend que divide uma ap
 
 <img width="511" height="692" alt="Captura de tela 2025-11-18 143946" src="https://github.com/user-attachments/assets/1fdae87d-deae-41e7-be47-fa7c54e9f9c8" />
 
-<a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" align="left"></a>
+<a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" height="777"></a>
 
 <a href="https://medium.com/better-programming/the-future-of-micro-frontends-2f527f97d506">Micro frontends</a> são uma abordagem arquitetônica poderosa para gerenciar a complexidade de aplicações empresariais modernas. Ao atender aos principais requisitos de desenvolvimento desacoplado, versionamento independente, atualizações incrementais, implantações independentes, integração em tempo de execução, componentes compartilhados, desenvolvimento colaborativo e equipes autônomas, as organizações podem alcançar uma arquitetura frontend altamente modular e escalável. A Bit and Webpack Module Federation oferece um conjunto robusto de ferramentas para apoiar esses objetivos, capacitando as equipes a inovar mais rápido e entregar experiências excepcionais ao usuário em um cenário digital em rápida evolução.
 
