@@ -128,8 +128,11 @@ Na prática, os componentes possuem interfaces bem definidas e comunicam-se entr
 Além disso, o desenvolvimento baseado em componentes favorece a testabilidade e o versionamento granular, pois cada unidade pode ser testada isoladamente e evoluída de forma segura. Também incentiva a colaboração entre equipes, permitindo que diferentes grupos trabalhem em diferentes componentes sem conflitos, o que é crucial em projetos grandes e distribuídos. No entanto, adotar component-based exige disciplina em design, pois é necessário definir interfaces estáveis, evitar acoplamentos desnecessários e gerenciar bem a comunicação entre os módulos. Quando bem aplicado, o component-based resulta em sistemas mais flexíveis, organizados e fáceis de escalar, permitindo evoluções constantes sem comprometer a estrutura já existente.
 
 <img width="629" height="442" alt="dan-abramov-on-reasons-behind-microfrontends" src="https://github.com/user-attachments/assets/a95a7d46-b849-42f6-8e7f-450a53eadefd" />
+![1762133418361](https://github.com/user-attachments/assets/faa841f0-3e46-4e45-ab93-12bfeaaae932)
 
 Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por essa abordagem já deveriam ser resolvidos por algo mais simples, como um bom modelo de componentes, portanto deve ser sobre outra coisa. Talvez resolvendo problemas organizacionais? Concordo parcialmente com isso. Na nossa experiência, isso não resolve necessariamente problemas desse tipo, mas requer uma configuração específica em nível organizacional por design, o que pode ser benéfico para você.
+
+<img width="1024" height="1001" alt="Microfrontends_architecture-1024x1001" src="https://github.com/user-attachments/assets/982f79e5-c34b-4f9a-afeb-99a804ba6696" />
 
 Deixe-me mostrar o que quero dizer. Suponha uma aplicação que consiste em armazenamentos independentes dedicados a serviços backend, que são então conectados aos seus próprios serviços frontend, e então há essa camada fina de composição por cima de tudo. É assim que a arquitetura da aplicação em que estou trabalhando se parece, é claro, representada de forma muito, muito simplificada. Quando colocamos isso no contexto da nossa organização e adicionamos equipes a esse diagrama, alguns dos benefícios dessa abordagem ficam muito claros.
 
@@ -169,6 +172,8 @@ libs/
   auth/            # autenticação
   utils/           # helpers
 ```
+
+<img width="365" height="138" alt="images" src="https://github.com/user-attachments/assets/79515a5b-92e5-457b-92ba-d2ad41de3c96" />
 
 Aqui cada `apps/*` pode ser um microfrontend independente, mas o Nx garante:
 
