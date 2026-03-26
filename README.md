@@ -2,7 +2,7 @@
 
 > Versículo chave: "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." - Provérbios 16:3
 
-# 🎨 Micro-Frontends
+# 🎨 MFE - Micro-Frontends
 <img src="https://img.shields.io/badge/Figma-features-tomato?style=flat&logo=Figma&logoColor=white"> <img src="https://img.shields.io/badge/Vue.js-SPA-339933?style=flat&logo=Vue.js&logoColor=white"> <img src="https://img.shields.io/badge/Angular-SPA-CC342D?style=flat&logo=Angular&logoColor=white"> <img src="https://img.shields.io/badge/Angular-3.3-CC342D?style=flat&logo=Angular&logoColor=white"> <a href="https://blog.bitsrc.io/top-9-react-component-libraries-for-2025-a11139b3ed2e?source=post_page---author_recirc--df10edf0e8d0----0---------------------1744195f_55d3_428f_b6fa_370d3ddc78c4--------------"><img src="https://img.shields.io/badge/React-SPA-00ADD8?style=flat&logo=React&logoColor=white"></a> <a href=""><img src="https://img.shields.io/badge/Vite-23-violet?style=flat&logo=Vite&logoColor=white"></a> <img src="https://img.shields.io/badge/Blazor-8.0.300-512BD4?style=flat&logo=Blazor&logoColor=white"> <img src="https://img.shields.io/badge/Svelte-SPA-orange?style=flat&logo=Svelte&logoColor=white">
 
 <img src="https://em-content.zobj.net/source/microsoft-teams/400/artist-palette_1f3a8.png" align="right" height="77">
