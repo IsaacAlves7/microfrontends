@@ -1035,3 +1035,18 @@ Alguns Benefícios Chave do SPA Único
 - ✅ Possibilita escalonamento horizontal
 - ✅ Manutenção fácil
 - ✅ Melhor agilidade
+
+**Piral** é um poderoso framework open-source para construir aplicações web modulares, extensíveis e escaláveis. Ele foi projetado para suportar o conceito de micro frontends, permitindo que desenvolvedores criem aplicações web como um conjunto de componentes modulares que podem ser desenvolvidos e implantados de forma independente.
+
+Como funciona o Piral? O Piral utiliza um mecanismo de carregamento dinâmico que permite carregar e descarregar micro frontends sob demanda, melhorando o desempenho da aplicação e reduzindo os tempos de carga. Ele oferece uma arquitetura de plugins que permite aos desenvolvedores expandir e personalizar a funcionalidade do framework por meio da criação de plugins.
+
+O Piral permite que desenvolvedores compartilhem dependências entre diferentes micro frontends, reduzindo o tamanho geral da aplicação e melhorando o desempenho. Ele oferece um sistema centralizado de gerenciamento de estado, que permite aos desenvolvedores gerenciar o estado da aplicação em um único local.
+
+Principais Benefícios do Framework Piral:
+
+- ✅ Arquitetura adaptável para lidar com aplicações microfrontend em grande escala
+- ✅ Facilitar o compartilhamento de código e recursos entre equipes
+- ✅ Reduzir a dívida técnica e melhorar a qualidade do código
+- ✅ Ciclos de desenvolvimento e implantação mais rápidos
+- ✅ Poderoso mecanismo de agrupamento e cache
+- ✅ API flexível e extensível
