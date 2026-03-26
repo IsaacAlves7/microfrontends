@@ -94,6 +94,8 @@ Na prática, os componentes possuem interfaces bem definidas e comunicam-se entr
 Além disso, o desenvolvimento baseado em componentes favorece a testabilidade e o versionamento granular, pois cada unidade pode ser testada isoladamente e evoluída de forma segura. Também incentiva a colaboração entre equipes, permitindo que diferentes grupos trabalhem em diferentes componentes sem conflitos, o que é crucial em projetos grandes e distribuídos. No entanto, adotar component-based exige disciplina em design, pois é necessário definir interfaces estáveis, evitar acoplamentos desnecessários e gerenciar bem a comunicação entre os módulos. Quando bem aplicado, o component-based resulta em sistemas mais flexíveis, organizados e fáceis de escalar, permitindo evoluções constantes sem comprometer a estrutura já existente.
 
 ## [Microfrontend] Bit
+<a href="https://bit.dev/"><img src="https://github.com/user-attachments/assets/bae1537b-cdba-495a-8d04-b5d2ecbdc681" align="right" height="177"></a>
+
 A Bit e a <a href="https://bit.cloud/">Bit Cloud</a> oferecem uma solução completa para equipes inovadoras que desenvolvem produtos de software componíveis. Como a plataforma líder do setor em desenvolvimento orientado a componentes, ela impulsiona o desenvolvimento de aplicativos componíveis em larga escala para milhares de equipes e empresas da Fortune 500.
 
 O **Bit** e o **Bit Cloud** entram exatamente naquela evolução natural que você está explorando: sair de “aplicações” e começar a pensar em **componentes como unidades independentes de software**, quase como “microservices do front-end”, só que num nível ainda mais granular e reutilizável.
@@ -101,6 +103,8 @@ O **Bit** e o **Bit Cloud** entram exatamente naquela evolução natural que voc
 o **Bit** é uma ferramenta pra tratar componentes como unidades independentes versionáveis, e o **Bit Cloud** é onde esses componentes vivem e são compartilhados. Juntos, eles levam o front-end para um nível de modularidade comparável ao que microservices fizeram no backend com os mesmos benefícios e os mesmos riscos se usados sem critério.
 
 O Bit é uma ferramenta que permite você **criar, versionar, compartilhar e consumir componentes de forma independente**, mesmo estando dentro de um projeto maior. Em vez de tratar seu front-end como um bloco único (ou até como microfrontends grandes), você começa a tratar cada componente — botão, header, formulário, hook, lógica de negócio — como uma unidade isolada, com seu próprio ciclo de vida.
+
+A **Bit** oferece uma plataforma de nível empresarial para implementar desenvolvimento desacoplado em micro frontends. Veja como Bit facilita esse processo: Ele permite que desenvolvedores encapsulem recursos frontend como componentes individuais, desenvolvidos de forma independente e versionados. Esse isolamento permite que as equipes atualizem e lancem novas versões sem afetar outras partes do aplicativo. Construindo uma solução escalável de micro frontends com federação de módulos e bits.
 
 A grande sacada é que o Bit desacopla o componente do projeto. Normalmente, no React por exemplo, seus componentes vivem dentro do app. Com Bit, eles podem “viver fora”, ser versionados individualmente e reutilizados em vários projetos sem copiar código.
 
@@ -248,10 +252,6 @@ Em grandes empresas, frontends frequentemente se tornam monolíticos e difíceis
 - Escale de forma eficiente: Escale independentemente cada micro frontend, apoiando o crescimento orgânico.
 
 Frameworks de microfrontend permitem criar unidades menores e independentes para sua aplicação frontend, que permitem focar no desenvolvimento de partes independentes da sua aplicação como componentes. Essas pequenas unidades podem ser desenvolvidas, testadas, versionadas e implantadas por equipes separadas. Isso ajudará você a aprimorar seu trabalho paralelo e minimizar o risco de gargalos nos pipelines de desenvolvimento.
-
-<a href="https://bit.dev/"><img src="https://github.com/user-attachments/assets/bae1537b-cdba-495a-8d04-b5d2ecbdc681" align="right" height="177"></a>
-
-A **Bit** oferece uma plataforma de nível empresarial para implementar desenvolvimento desacoplado em micro frontends. Veja como Bit facilita esse processo: Ele permite que desenvolvedores encapsulem recursos frontend como componentes individuais, desenvolvidos de forma independente e versionados. Esse isolamento permite que as equipes atualizem e lancem novas versões sem afetar outras partes do aplicativo. Construindo uma solução escalável de micro frontends com federação de módulos e bits.
 
 ![1_OlQsunH7kXFFctnuWb9RNw](https://github.com/user-attachments/assets/a7dc9d37-bcca-4bb4-9509-e134eb23394a)
 
