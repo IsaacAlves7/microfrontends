@@ -801,3 +801,34 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## [Microfrontends] Frameworks de Micro Frontend
+À medida que as aplicações web continuam a crescer em tamanho e complexidade, os desenvolvedores estão constantemente buscando novas formas de construí-las e mantê-las de forma eficiente. 
+
+Agilidade e flexibilidade aumentadas: Micro Frontends permitem mais flexibilidade e agilidade no desenvolvimento, já que cada recurso de aplicação é um módulo independente que pode ser desenvolvido, testado e implantado isoladamente. As equipes podem escolher a pilha tecnológica que melhor atenda às suas necessidades e preferências, permitindo maior flexibilidade no desenvolvimento.
+
+Escalabilidade Aprimorada
+Micro Frontends facilitam a escalabilidade horizontal das aplicações, já que cada módulo pode ser implantado separadamente, permitindo melhor desempenho e confiabilidade.
+Também permite que as equipes adicionem ou removam recursos facilmente da aplicação sem afetar o restante da aplicação, tornando-a mais escalável a longo prazo.
+
+Redução da Dependência e Melhoria da Manutenção
+Micro Frontends reduzem a dependência entre recursos, facilitando a manutenção da aplicação ao longo do tempo.
+Cada módulo pode ser desenvolvido, testado e implantado de forma independente, o que facilita a realização de atualizações ou alterações sem impactar toda a aplicação.
+
+Melhor Produtividade e Colaboração em Equipe
+Micro Frontends permitem que equipes trabalhem de forma independente em diferentes partes da aplicação, sem se atrapalharem, melhorando a produtividade e a colaboração.
+Cada equipe pode focar em sua funcionalidade ou funcionalidade específica, reduzindo conflitos e otimizando o desenvolvimento.
+
+Melhoria da Experiência do Usuário
+Micro Frontends permitem que desenvolvedores criem melhores experiências de usuário ao focar em recursos e funcionalidades específicas.
+Também permite maior personalização e personalização do aplicativo, aumentando o engajamento e a satisfação do usuário.
+
+7 Melhores Frameworks de Micro Frontend 2024:
+Estrutura Single-SPA
+Estrutura Piral
+Estrutura Luigi
+OpenComponents Framework
+Estrutura Mosaico
+NanoFrame
+FusionFront
+Quando se trata de Micro Frontends, não existe uma abordagem única para todos. De integrações inteligentes em tempo de construção a roteadores personalizados em tempo de execução, há uma infinidade de técnicas que podem ser empregadas para criar arquiteturas micro frontend eficientes e eficazes. Para facilitar o processo de desenvolvimento, várias ferramentas poderosas surgiram, cada uma com seu próprio conjunto único de benefícios e recursos. Vamos dar uma olhada mais detalhada em algumas das ferramentas mais proeminentes disponíveis para construir micro frontends:
