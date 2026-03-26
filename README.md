@@ -284,8 +284,8 @@ And join the Nx community:
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## [Microfrontend] Eventos e Estados
-![Screenshot_20251210-113118_Instagram](https://github.com/user-attachments/assets/8811230b-4da8-44b8-b1ee-ae6872e7ac1f)
+## [Microfrontends] Eventos e Estados
+<img src="https://github.com/user-attachments/assets/d5fb1396-d940-4810-9990-e8aa4b6a9d74" align="right">
 
 Quando você entra em microfrontends, o maior desafio deixa de ser só “dividir a aplicação” e passa a ser **como essas partes conversam e compartilham estado sem virar um monolito distribuído no front-end** — exatamente o mesmo problema que você já enxergou no backend com microservices vs nanoservices.
 
