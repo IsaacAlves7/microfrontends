@@ -1,6 +1,8 @@
 # 🎨 Micro-Frontends
 <img src="https://img.shields.io/badge/Figma-features-tomato?style=flat&logo=Figma&logoColor=white"> <img src="https://img.shields.io/badge/Vue.js-SPA-339933?style=flat&logo=Vue.js&logoColor=white"> <img src="https://img.shields.io/badge/Angular-SPA-CC342D?style=flat&logo=Angular&logoColor=white"> <img src="https://img.shields.io/badge/Angular-3.3-CC342D?style=flat&logo=Angular&logoColor=white"> <a href="https://blog.bitsrc.io/top-9-react-component-libraries-for-2025-a11139b3ed2e?source=post_page---author_recirc--df10edf0e8d0----0---------------------1744195f_55d3_428f_b6fa_370d3ddc78c4--------------"><img src="https://img.shields.io/badge/React-SPA-00ADD8?style=flat&logo=React&logoColor=white"></a> <a href=""><img src="https://img.shields.io/badge/Vite-23-violet?style=flat&logo=Vite&logoColor=white"></a> <img src="https://img.shields.io/badge/Blazor-8.0.300-512BD4?style=flat&logo=Blazor&logoColor=white"> <img src="https://img.shields.io/badge/Svelte-SPA-orange?style=flat&logo=Svelte&logoColor=white">
 
+<img src="https://em-content.zobj.net/source/microsoft-teams/400/artist-palette_1f3a8.png" align="right" height="77">
+
 **Micro-frontend** é uma abordagem de arquitetura de software para desenvolvimento web inspirada em padrões de <a href="">microsserviços</a>. Ou seja, estamos construindo aplicativos componíveis de forma orquestrada e escalável usando uma plataforma de desenvolvimento orientada a componentes (CDD - Component-Driven Development). Ao longo da minha carreira, testemunhei os desafios das arquiteturas monolíticas de front-end e o poder transformador dos microfront-ends.
 
 Talvez você já tenha ouvido falar sobre o conceito de microserviços. Aquele negócio de dividir o back-end em partes menores, cada um com sua responsabilidade (SOLID). Porém, no front-end ainda é muito comum o uso de monolitos. 
@@ -58,6 +60,8 @@ Aplicações criadas com abordagem de microfrontends para o usuário final podem
     <td><img height="577" alt="microfrontend-app-in-development" src="https://github.com/user-attachments/assets/1d48f502-9eba-4ec9-b7ea-080e3e8c5681" /></td>
   </tr>
 </table>
+
+A ideia desse tipo de separação de código não é novidade – apenas em relação ao desenvolvimento web frontend já havia abordagens semelhantes descritas no passado, como "aplicações verticalmente decompostas", "sistemas autônomos" ou "sites de microserviços" – mas com o surgimento da arquitetura orientada a serviços e microserviços nos últimos anos, essa abordagem, desta vez chamada de "microfrontends", está ganhando muita popularidade e sendo amplamente adaptada. Você pode encontrar muitas palestras e artigos dos últimos anos vindos de empresas como Microsoft, Spotify ou Zalando, onde descrevem suas experiências com o desenvolvimento de seus produtos com essa arquitetura.
 
 À medida que as aplicações empresariais se tornam complexas, adotar micro frontends é fundamental para manter a agilidade e acelerar os ciclos de desenvolvimento. As aplicações de micro front-end estão transformando a forma como abordamos o desenvolvimento web. Ao dividir o front-end monolítico em partes menores, ganhamos vantagens em escalabilidade, manutenção e velocidade de desenvolvimento. Esses benefícios capacitam equipes a trabalhar de forma eficiente, colaborativa e a manter a competitividade em um cenário digital em constante evolução.
 
@@ -120,6 +124,14 @@ Uma plataforma dedicada estabelece as bases para que CDD e composabilidade sejam
 Na prática, os componentes possuem interfaces bem definidas e comunicam-se entre si de forma controlada, muitas vezes por meio de eventos, injeção de dependência ou contratos formais de dados. Isso os torna altamente portáveis e adaptáveis a diferentes contextos. No front-end, esse conceito é amplamente adotado em frameworks como React, Angular e Vue, onde cada parte da interface — como botões, formulários ou tabelas — é um componente reutilizável. No back-end, esse paradigma também pode ser aplicado através de serviços encapsulados ou bibliotecas modulares que se integram em uma arquitetura maior. Em ambientes mais complexos, os componentes podem evoluir para microcomponentes ou micro frontends, refletindo a mesma filosofia de modularidade.
 
 Além disso, o desenvolvimento baseado em componentes favorece a testabilidade e o versionamento granular, pois cada unidade pode ser testada isoladamente e evoluída de forma segura. Também incentiva a colaboração entre equipes, permitindo que diferentes grupos trabalhem em diferentes componentes sem conflitos, o que é crucial em projetos grandes e distribuídos. No entanto, adotar component-based exige disciplina em design, pois é necessário definir interfaces estáveis, evitar acoplamentos desnecessários e gerenciar bem a comunicação entre os módulos. Quando bem aplicado, o component-based resulta em sistemas mais flexíveis, organizados e fáceis de escalar, permitindo evoluções constantes sem comprometer a estrutura já existente.
+
+<img width="629" height="442" alt="dan-abramov-on-reasons-behind-microfrontends" src="https://github.com/user-attachments/assets/a95a7d46-b849-42f6-8e7f-450a53eadefd" />
+
+Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por essa abordagem já deveriam ser resolvidos por algo mais simples, como um bom modelo de componentes, portanto deve ser sobre outra coisa. Talvez resolvendo problemas organizacionais? Concordo parcialmente com isso. Na nossa experiência, isso não resolve necessariamente problemas desse tipo, mas requer uma configuração específica em nível organizacional por design, o que pode ser benéfico para você.
+
+Deixe-me mostrar o que quero dizer. Suponha uma aplicação que consiste em armazenamentos independentes dedicados a serviços backend, que são então conectados aos seus próprios serviços frontend, e então há essa camada fina de composição por cima de tudo. É assim que a arquitetura da aplicação em que estou trabalhando se parece, é claro, representada de forma muito, muito simplificada. Quando colocamos isso no contexto da nossa organização e adicionamos equipes a esse diagrama, alguns dos benefícios dessa abordagem ficam muito claros.
+
+<img width="1280" height="1337" alt="microfrontend-app-architecture-with-teams" src="https://github.com/user-attachments/assets/9b9a56a3-d289-4812-853e-303136164b02" />
 
 ## [Microfrontend] Bit e Bit Cloud
 <a href="https://bit.dev/"><img src="https://github.com/user-attachments/assets/bae1537b-cdba-495a-8d04-b5d2ecbdc681" align="right" height="177"></a>
