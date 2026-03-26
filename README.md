@@ -50,7 +50,14 @@ O projeto acabou sendo um pouco mais complexo do que eu esperava – tanto em te
 
 Micro frontends estão mudando fundamentalmente a forma como construímos e escalamos frontend. Ao dividir frontends monolíticos em partes menores e mais gerenciáveis, as equipes podem desenvolver, implantar e atualizar componentes de frontend de forma independente, o que aumenta a escalabilidade e a flexibilidade. 
 
-<a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" height="777"></a>
+Aplicações criadas com abordagem de microfrontends para o usuário final podem parecer um site comum, enquanto no fundo podem ser construídas como uma composição de microaplicações separadas. Cada uma dessas aplicações tem sua própria base de código e repositório, seu próprio pipeline para passar esse código de ambiente em ambiente, sua própria versão em cada um desses ambientes em determinado momento, e sua própria equipe responsável por essa área de ponta a ponta.
+
+<table>
+  <tr>
+    <td><a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" height="777"></a></td>
+    <td><img height="737" alt="microfrontend-app-in-development" src="https://github.com/user-attachments/assets/1d48f502-9eba-4ec9-b7ea-080e3e8c5681" /></td>
+  </tr>
+</table>
 
 À medida que as aplicações empresariais se tornam complexas, adotar micro frontends é fundamental para manter a agilidade e acelerar os ciclos de desenvolvimento. As aplicações de micro front-end estão transformando a forma como abordamos o desenvolvimento web. Ao dividir o front-end monolítico em partes menores, ganhamos vantagens em escalabilidade, manutenção e velocidade de desenvolvimento. Esses benefícios capacitam equipes a trabalhar de forma eficiente, colaborativa e a manter a competitividade em um cenário digital em constante evolução.
 
