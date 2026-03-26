@@ -23,13 +23,18 @@ Micro frontends são uma abordagem de desenvolvimento frontend que divide uma ap
 >
 > Antes, os desenvolvedores ficavam realmente frustrados por ter que escrever aparentemente um milhão de linhas de código repetidamente, descobrindo detalhes e fazendo os testes. Com componentes prontamente disponíveis, agora podem se desenvolver e entregar em um quarto do tempo que levavam antes. Agora eles podem investir em um desenvolvimento de recursos mais inovadores." <a href="https://www.dell.com/en-us/blog/a-shared-building-block-approach-to-better-user-experience/">Líder de Transformação Tecnológica na Dell, Bit Platform</a>
 
-<img width="511" height="692" alt="Captura de tela 2025-11-18 143946" src="https://github.com/user-attachments/assets/1fdae87d-deae-41e7-be47-fa7c54e9f9c8" />
-
-<a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" height="777"></a>
+<table>
+  <tr>
+    <td><img width="511" height="692" alt="Captura de tela 2025-11-18 143946" src="https://github.com/user-attachments/assets/1fdae87d-deae-41e7-be47-fa7c54e9f9c8" /></td>
+    <td><img src="https://github.com/user-attachments/assets/55945ea7-7c16-4ad8-bf35-9490acb9ec2a"></td>
+  </tr>
+</table>
 
 <a href="https://medium.com/better-programming/the-future-of-micro-frontends-2f527f97d506">Micro frontends</a> são uma abordagem arquitetônica poderosa para gerenciar a complexidade de aplicações empresariais modernas. Ao atender aos principais requisitos de desenvolvimento desacoplado, versionamento independente, atualizações incrementais, implantações independentes, integração em tempo de execução, componentes compartilhados, desenvolvimento colaborativo e equipes autônomas, as organizações podem alcançar uma arquitetura frontend altamente modular e escalável. A Bit and Webpack Module Federation oferece um conjunto robusto de ferramentas para apoiar esses objetivos, capacitando as equipes a inovar mais rápido e entregar experiências excepcionais ao usuário em um cenário digital em rápida evolução.
 
 Micro frontends estão mudando fundamentalmente a forma como construímos e escalamos frontend. Ao dividir frontends monolíticos em partes menores e mais gerenciáveis, as equipes podem desenvolver, implantar e atualizar componentes de frontend de forma independente, o que aumenta a escalabilidade e a flexibilidade. 
+
+<a href="https://blog.bitsrc.io/component-driven-development-and-composable-applications-a-guide-7a0934e60936"><img src="https://github.com/user-attachments/assets/53f7ba2c-3f7f-4624-8563-885b97210803" height="777"></a>
 
 À medida que as aplicações empresariais se tornam complexas, adotar micro frontends é fundamental para manter a agilidade e acelerar os ciclos de desenvolvimento. As aplicações de micro front-end estão transformando a forma como abordamos o desenvolvimento web. Ao dividir o front-end monolítico em partes menores, ganhamos vantagens em escalabilidade, manutenção e velocidade de desenvolvimento. Esses benefícios capacitam equipes a trabalhar de forma eficiente, colaborativa e a manter a competitividade em um cenário digital em constante evolução.
 
