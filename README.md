@@ -1,3 +1,7 @@
+<a href="https://github.com/IsaacAlves7/microfrontends"><img width="100%" height="628" alt="170123_MICROFRONTEND_DESIGN" src="https://github.com/user-attachments/assets/6b3639b9-8128-4fe5-a448-75e5fc7348db" /></a>
+
+> Versículo chave: "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." - Provérbios 16:3
+
 # 🎨 Micro-Frontends
 <img src="https://img.shields.io/badge/Figma-features-tomato?style=flat&logo=Figma&logoColor=white"> <img src="https://img.shields.io/badge/Vue.js-SPA-339933?style=flat&logo=Vue.js&logoColor=white"> <img src="https://img.shields.io/badge/Angular-SPA-CC342D?style=flat&logo=Angular&logoColor=white"> <img src="https://img.shields.io/badge/Angular-3.3-CC342D?style=flat&logo=Angular&logoColor=white"> <a href="https://blog.bitsrc.io/top-9-react-component-libraries-for-2025-a11139b3ed2e?source=post_page---author_recirc--df10edf0e8d0----0---------------------1744195f_55d3_428f_b6fa_370d3ddc78c4--------------"><img src="https://img.shields.io/badge/React-SPA-00ADD8?style=flat&logo=React&logoColor=white"></a> <a href=""><img src="https://img.shields.io/badge/Vite-23-violet?style=flat&logo=Vite&logoColor=white"></a> <img src="https://img.shields.io/badge/Blazor-8.0.300-512BD4?style=flat&logo=Blazor&logoColor=white"> <img src="https://img.shields.io/badge/Svelte-SPA-orange?style=flat&logo=Svelte&logoColor=white">
 
