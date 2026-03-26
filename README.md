@@ -207,7 +207,7 @@ O risco é válido, se você me perguntar – já passamos por esse problema em 
 
 Também é importante levar em conta o tamanho equilibrado e sensato de cada microfontend. Ao contrário de algumas crenças, que na minha opinião tornam esse risco de fragmentação um pouco exagerado, nem toda parte da interface precisa ser uma entidade separada. Naturalmente, quanto mais fragmentada for sua aplicação, maior o risco que vem com essa fragmentação, mas a abordagem microfrontend pode ser aplicada com diferentes níveis de fragmentação, o que é outra forma de gerenciar essa potencial responsabilidade.
 
-## [Microfrontends] Nx
+## [MFE] Nx
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77" align="right"></a>
 
 O **Nx** é um *build system* e ferramenta de gerenciamento de **monorepo** focada em projetos modernos principalmente front-end, mas também back-end. Ele nasceu dentro do ecossistema Angular, mas hoje funciona muito bem com React, Vue.js, Node.js e até stacks fullstack.
@@ -346,7 +346,7 @@ And join the Nx community:
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## [Microfrontends] Eventos e Estados
+## [MFE] Eventos e Estados
 <img src="https://github.com/user-attachments/assets/d5fb1396-d940-4810-9990-e8aa4b6a9d74" align="right">
 
 Quando você entra em microfrontends, o maior desafio deixa de ser só “dividir a aplicação” e passa a ser **como essas partes conversam e compartilham estado sem virar um monolito distribuído no front-end** — exatamente o mesmo problema que você já enxergou no backend com microservices vs nanoservices.
@@ -445,7 +445,7 @@ O design correto geralmente segue essa lógica:
 
 Resumo direto, no teu estilo: eventos são desacoplados, mas difíceis de rastrear; estado global é simples, mas acopla tudo. Arquitetura madura de microfrontends usa os dois com critério, senão você recria no front-end os mesmos problemas que já existem no backend distribuído.
 
-## [Microfrontends] Bit e Bit Cloud
+## [MFE] Bit e Bit Cloud
 <a href="https://bit.dev/"><img src="https://github.com/user-attachments/assets/bae1537b-cdba-495a-8d04-b5d2ecbdc681" align="right" height="177"></a>
 
 A Bit e a <a href="https://bit.cloud/">Bit Cloud</a> oferecem uma solução completa para equipes inovadoras que desenvolvem produtos de software componíveis. Como a plataforma líder do setor em desenvolvimento orientado a componentes, ela impulsiona o desenvolvimento de aplicativos componíveis em larga escala para milhares de equipes e empresas da Fortune 500.
@@ -1000,7 +1000,7 @@ A estrutura da solução ModFed. A organização de bits que mantém a solução
 
 Em essência, o Bit suporta a integração perfeita e o gerenciamento independente de shells de aplicativos e micro frontends, garantindo consistência e flexibilidade em aplicações web complexas. Aqui está um exemplo:
 
-## [Microfrontends] Frameworks de Micro Frontend
+## [MFE] Frameworks de Micro Frontend
 À medida que as aplicações web continuam a crescer em tamanho e complexidade, os desenvolvedores estão constantemente buscando novas formas de construí-las e mantê-las de forma eficiente. 
 
 Agilidade e flexibilidade aumentadas: Micro Frontends permitem mais flexibilidade e agilidade no desenvolvimento, já que cada recurso de aplicação é um módulo independente que pode ser desenvolvido, testado e implantado isoladamente. As equipes podem escolher a pilha tecnológica que melhor atenda às suas necessidades e preferências, permitindo maior flexibilidade no desenvolvimento.
@@ -1050,3 +1050,50 @@ Principais Benefícios do Framework Piral:
 - ✅ Ciclos de desenvolvimento e implantação mais rápidos
 - ✅ Poderoso mecanismo de agrupamento e cache
 - ✅ API flexível e extensível
+
+**Luigi Framework** é "o framework micro frontend pronto para empresas" que ajuda a construir interfaces e aplicativos web modulares, extensíveis, escaláveis e consistentes. Segue uma abordagem declarativa para a composição de interfaces, onde cada micro frontend declara suas dependências de outros micro frontends, e o framework cuida da resolução e carregamento dessas dependências.
+
+Como o Luigi funciona? O Luigi oferece um sistema centralizado de configuração que permite aos desenvolvedores configurar e gerenciar facilmente as micro frontends da aplicação. Ele oferece um sistema de roteamento poderoso que permite aos desenvolvedores navegar facilmente entre diferentes micro frontends. O Luigi oferece um sistema compartilhado de gerenciamento de estado, que permite aos desenvolvedores gerenciar o estado da aplicação em um único local.
+
+Principais Benefícios do Luigi Framework:
+
+- ✅ Construa uma interface altamente interativa e responsiva para melhorar a experiência de usuário
+- ✅ Navegação fácil entre diferentes micro frontends
+- ✅ Flexibilidade para atender a necessidades específicas de personalização
+- ✅ Arquitetura de plugins para customização funcional
+- ✅ Compartilhamento fácil de dados entre a aplicação
+- ✅ Incentiva a reutilização
+- ✅ Carregamento sob demanda
+
+**OpenComponents Framework** é um framework de micro frontend com leveza e flexibilidade para construir aplicações micro frontend modulares e fáceis de manter.
+
+Como funcionam os OpenComponents? O OpenComponents utiliza a arquitetura Web Component para criar micro frontends independentes e reutilizáveis. Cada micro frontend é encapsulado em um elemento personalizado, que pode ser facilmente reutilizado em múltiplas aplicações.
+
+Ela fornece uma API padronizada para micro frontends se comunicarem entre si, permitindo que compartilhem dados e estados de forma fluida. Essa API garante que todos os componentes sejam compatíveis, independentemente da tecnologia de front-end usada para construí-los.
+
+Além disso, ele suporta uma variedade de tecnologias de front-end, incluindo React, Vue, Angular e JavaScript padrão. Essa flexibilidade permite que os desenvolvedores usem a pilha tecnológica mais adequada para sua aplicação, sem comprometer a arquitetura micro 
+frontend.
+
+Principais benefícios do OpenComponents Framework:
+
+- ✅ Crie micro frontends independentes e reutilizáveis
+- ✅ API padronizada para comunicação entre si
+- ✅ Adequado para uma ampla variedade de casos de uso
+- ✅ Carregamento de componentes sob demanda
+- ✅ Fácil colaborar
+
+**Mosaic Framework** é uma extensão revolucionária do renomado framework Apache Spark, projetada para enfrentar os desafios impostos por conjuntos de dados geoespaciais gigantescos. Essa tecnologia de ponta permite o processamento ultrarrápido até mesmo das informações geoespaciais mais complexas, abrindo um mundo de possibilidades para organizações orientadas por dados.
+
+Como funciona o Mosaic? Com uma arquitetura modular e escalável para construir micro frontends, que permite que as equipes criem aplicações geoespaciais robustas e escaláveis. Ele permite que desenvolvedores construam componentes como microserviços autônomos, que podem ser facilmente integrados a outros componentes para formar uma aplicação completa. Essa abordagem garante que cada micro frontend seja responsável por sua funcionalidade e não esteja fortemente acoplada a outros componentes.
+
+O modelo de computação distribuída da Mosaic permite que micro frontends sejam implantados de forma escalável e tolerante a falhas, garantindo que a aplicação possa lidar com grandes volumes de dados geoespaciais sem comprometer desempenho ou confiabilidade. A arquitetura flexível e modular da Mosaic permite que desenvolvedores misturem e combinem diferentes componentes para criar micro frontends personalizados, possibilitando que equipes criem aplicações adaptadas às suas necessidades específicas.
+
+A natureza open-source da Mosaic significa que possui uma comunidade grande e ativa de desenvolvedores que estão constantemente adicionando novos recursos e funcionalidades ao framework. Isso garante que a Mosaic esteja sempre atualizada com as últimas tendências e melhores práticas no processamento de dados geoespaciais.
+
+Principais benefícios do Mosaic Framework:
+
+- ✅ Reduz o custo e a complexidade para gerenciar e escalar aplicações geoespaciais
+- ✅ Suporta uma ampla variedade de linguagens de programação e bibliotecas
+- ✅ Plataforma unificada para processamento, análise e visualização de dados
+- ✅ Ambiente de computação distribuída
+- ✅ Interface amigável ao usuário
