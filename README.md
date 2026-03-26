@@ -25,12 +25,54 @@ Como mencionei, a ideia de microfrontends é a extensão direta da ideia de arqu
 
 A arquitetura microfrontend seria então um estilo arquitetônico onde aplicações frontend entregáveis de forma independente – microfrontends – são compostas e servidas ao usuário final como uma única aplicação completa e coerente.
 
+Quão micro é microfrontend? Resumindo, o microfrontend deve ser tão pequeno quanto faz sentido. Assim como na arquitetura orientada a serviços, também microfrontends vêm com trade-offs claros. Entidades menores são mais fáceis e rápidas na implantação, mas dividir uma entidade em várias significa necessidade de mais processos de implantação, automação, integração e também mais dependências entre elas. Uma entidade grande é mais fácil de manter como um todo, mas vem com o custo da falta de separação – pode se tornar menos legível, levar mais tempo para ser testada e implantada, ou combinar diferentes áreas lógicas em si mesma, levando à falta de propriedade clara.
+
+No nosso sistema, temos microfrontends que variam muito em tamanho. A maioria deles são pequenos widgets únicos – dezenas dos quais seriam combinados em uma única visão – mas também há muitos exemplos de microfrontends que representam páginas inteiras ou até coleções de páginas logicamente relacionadas entre si.
+
+Ao decidir o tamanho do microfontend, levamos em conta vários fatores.
+
+Reutilização: A primeira pergunta a se fazer seria: "esse elemento deve ser reutilizado em diferentes visões separadas?". Se sim, não vale a pena duplicar o código dela em todos esses lugares. Em vez disso, deveria se tornar uma entidade separada com uma única fonte de verdade e integrada a essas visões separadamente.
+
+No entanto, é bastante comum que não seja exatamente a mesma microfonte em diferentes vistas, mas sim algum tipo de variação. Nesses casos, tomamos decisões com base na quantidade e gravidade dessas diferenças. Para pequenas diferenças entre variantes, mantemos tudo como um só e tornamos os elementos variados configuráveis. Quanto mais configuração for necessária, mais variantes diferentes são e maior a probabilidade de que sejam microfrontends separados.
+
+Também é importante, neste caso, considerar o contexto em que essa parte será usada por outros. A principal questão é: se você, como proprietário desse elemento, quiser fornecer uma única fonte de verdade sobre ele – então você tem controle total sobre qual das versões é usada por todos os consumidores, mas você é responsável por fazer funcionar para todos – ou quer dar escolha a outros – então você passa essa responsabilidade para eles, Mas você não pode controlar qual versão eles usam e não pode fazer com que migrem para a mais nova quando você a encontrar pronta.
+
+Propriedade
+Outro motivo para criar microfrontends separados seria baseado na resposta à pergunta: "esse elemento se estende por diferentes áreas lógicas pertencentes a equipes separadas?". Se sim, isso quebra a regra da propriedade única e clara, portanto deve ser dividido em elementos menores, cada um designado para equipes específicas responsáveis pela área correspondente.
+
+É importante que cada microfrontend seja propriedade de uma única equipe que se interessa por áreas lógicas relacionadas a esse microfrontend. No entanto, com o tempo, muitas vezes adicionamos mais e mais funcionalidades aos nossos widgets e aplicações, e às vezes eles acabam combinando recursos de diferentes áreas. Quando percebemos que um determinado elemento inclui lógica de negócios que deveria ser responsabilidade de outra equipe, ele se torna um bom candidato para fatiamento.
+
+Raramente é cortado ao meio, porém. Na maioria das vezes, é uma relação bastante hierárquica: participamos de encapsular esse recurso e o tornamos um microfrontend separado, fornecendo essa funcionalidade, passamos a propriedade para outra equipe e colocamos dentro do espaço deles, depois nos referimos a ela das aplicações principais, que se tornam meio que consumidores.
+
+Normalmente, já estamos cientes desse tipo de situação antes do código ser enviado para produção – perceber que você está desenvolvendo fora da sua área de especialização não exige nenhuma mágica. Por isso, tentamos fazer da maneira certa desde o início, o que significa solicitar essa funcionalidade à equipe responsável pela área relacionada. No entanto, pode não ser possível obtê-lo em tempo razoável – afinal, eles podem estar ocupados com outras coisas.
+
+Depois, podemos implementar para eles, tanto quanto nosso conhecimento limitado permitir, e colocar diretamente na infraestrutura deles criando pull request. Ainda exige algum trabalho deles – revisá-lo e propor melhorias, provavelmente mais do que poucas, já que estamos desenvolvendo na área deles e tentando nos conformar aos padrões deles – trabalho, pelo qual também teríamos que esperar por um tempo às vezes inaceitável.
+
+Portanto, tais candidatos para divisão estão sendo criados, e estamos perfeitamente de acordo com eles, desde que sejam marcados como dívida técnica, que planejamos pagar de forma transparente no futuro próximo.
+
+Tamanho puro
+Por último, mas não menos importante, há candidatos a serem divididos em entidades menores devido ao seu tamanho: "esse elemento começa a apresentar problemas semelhantes aos que as aplicações de monólitos têm?". Se sim, esse é mais um motivo para considerar a divisão em entidades separadas.
+
+Algumas de nossas aplicações não possuem elementos que possam ser reutilizados e se encaixem perfeitamente na responsabilidade de uma única equipe, mas as dividimos em menores porque o desenvolvimento e a manutenção começam a se tornar um problema. É uma métrica totalmente subjetiva, baseada no instinto do desenvolvedor e em algumas estatísticas, geralmente relacionadas à escalabilidade ou lançamento desse software.
+
+Em outras palavras, se planejarmos escalar certa parte do microfrontend de forma diferente do resto – por exemplo, uma parte do aplicativo será acessada em tempo de execução por 1 usuário por minuto, e outra por 1000 usuários por minuto – é melhor que essas partes sejam separadas. Se o lançamento se tornar problemático, levar muito tempo, resultar em alguns bugs e geralmente se tornar pouco confiável – também é melhor dividir esse elemento em outros menores, embora nesse caso seja menos óbvio onde traçar limites.
+
+Na prática: Um bom exemplo de partes altamente fragmentadas da aplicação seriam a página inicial ou dashboards de algum tipo – eles frequentemente combinam elementos que também são visíveis em outras páginas.
+
 <table>
   <tr>
     <td><a href="https://codepen.io/your-work"><img src="https://github.com/user-attachments/assets/3bb5bd0c-6941-4a95-80e7-6f3ba9d1f479" align="right" height="377"></a></td>
     <td><img src="https://github.com/user-attachments/assets/9335f5b7-b920-4dc8-aff1-7d27226bb0fd" align="right" height="477"></td>
   </tr>
 </table>
+
+Um exemplo de aplicação simples de página única seria, no nosso caso, a página de edição do perfil do usuário. É uma página com várias seções editáveis, onde o usuário pode fornecer diferentes tipos de informações relacionadas à sua educação e carreira profissional. É um app inteiro, nenhuma de suas partes é usada em outra visão, se encaixa na responsabilidade de uma equipe única e não observamos nenhum problema causado pelo seu tamanho.
+
+Por fim, existem aplicações de página única que encapsulam várias páginas – como editor de ofertas de emprego, com as quais os recrutadores podem convenientemente configurar todo tipo de conteúdo que depois é consultado pelos candidatos. Esse aplicativo é muito mais sofisticado do que a página de edição do perfil do usuário, pois há muito mais tipos de informações para serem disponibilizadas. Ele vem com várias páginas diferentes e seu próprio roteamento. Ainda assim, em nossa arquitetura, é um microfrontend – não reutilizado em outras partes do sistema, pertencente a uma equipe, lançado como um todo.
+
+Claro, nenhum desses exemplos certamente permanecerá nesse estado no futuro – seu tamanho depende das necessidades do negócio e do que encontramos funcionando para nós no desenvolvimento e manutenção no momento. Os requisitos vão mudar, o ambiente vai mudar, nossas preferências vão mudar, então a configuração de microfrontends específicos também vai mudar. Precisamos levar em conta tudo o que sabemos quando começamos e adotar a solução mais simples possível. Portanto, assim como na arquitetura de toda a aplicação, também com microfrontends específicos, geralmente começamos com pequenos monólitos, a menos que saibamos previamente que existem requisitos para reutilização, recursos de multiequipes ou outras contraindicações.
+
+No geral, não existe uma regra de ouro quando se trata de tamanho de microfrontend, e não confie em ninguém dizendo que frontends mais "micro" ou mais "macro" são melhores. Confie em si mesmo e no seu julgamento. Pese prós e contras e decida dividir uma parte específica da sua aplicação em menores sempre que achar mais útil para você.
 
 Micro frontends vieram para ficar! Micro frontends oferecem uma solução promissora para esse problema, proporcionando uma forma mais eficiente e gerenciável de construir aplicações web complexas. À medida que as empresas continuam a exigir aplicações web mais rápidas e ágeis, os desenvolvedores precisam adotar essa nova abordagem. Seja você construindo uma pequena startup ou uma grande aplicação empresarial, com as ferramentas e a abordagem certas, você pode criar aplicações web que sejam escaláveis, mantidas e, mais importante, amigáveis para o usuário.
 
@@ -144,6 +186,26 @@ Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por 
 Deixe-me mostrar o que quero dizer. Suponha uma aplicação que consiste em armazenamentos independentes dedicados a serviços backend, que são então conectados aos seus próprios serviços frontend, e então há essa camada fina de composição por cima de tudo. É assim que a arquitetura da aplicação em que estou trabalhando se parece, é claro, representada de forma muito, muito simplificada. Quando colocamos isso no contexto da nossa organização e adicionamos equipes a esse diagrama, alguns dos benefícios dessa abordagem ficam muito claros.
 
 <img width="1280" height="1337" alt="microfrontend-app-architecture-with-teams" src="https://github.com/user-attachments/assets/9b9a56a3-d289-4812-853e-303136164b02" />
+
+Arquitetura de aplicativos microfrontend com equipes
+
+Como você pode ver, dada essa separação de código, áreas separadas podem ser controladas de ponta a ponta por equipes distintas. Isso significa que você pode ter equipes pequenas e autônomas, fortemente focadas no cliente. Quase todo membro de cada equipe tem algum impacto nos usuários finais reais e pode observá-lo. Isso naturalmente aumentou a dedicação, o compromisso e a satisfação desses membros da equipe.
+
+Também permite que as equipes trabalhem com um escopo muito reduzido. Veja, no caso da nossa aplicação, o domínio empresarial ficou simplesmente grande demais para que uma pessoa só soubesse tudo. Por isso, dividimos em áreas estreitas e logicamente separadas – subdomínios – e as atribuímos a equipes separadas para serem responsáveis de ponta a ponta. Agora, desenvolvedores de cada uma dessas equipes podem realmente se tornar especialistas em sua parte do domínio. Ter um entendimento profundo dos aspectos relacionados aos negócios e técnicos da área se traduz em qualidade muito melhor do código produzido e das soluções projetadas por essa equipe.
+
+Ambos esses benefícios, combinados com a suposição principal dessa arquitetura – que você pode implantar pequenas partes da sua aplicação para viver de forma rápida e inofensiva – impactam diretamente a velocidade e agilidade do seu desenvolvimento. Imagine que você tem uma equipe pequena e focada, cheia de especialistas no que estão fazendo, que pode enviar coisas para produção em meia hora. Esse ambiente incentiva pequenas mudanças, frequentemente iterações, experimentos – basicamente tudo o que está encapsulado no termo "desenvolvimento ágil de software". É isso que queremos – ser ágeis – então é isso que fazemos.
+
+Além disso, tendo sua aplicação logicamente separada por design, você pode minimizar o risco que vem com a inevitável substituição de suas partes por outras totalmente novas – você conhece todas as dependências de antemão, em vez de descobri-las durante o desenvolvimento. Graças a isso, podemos refatorar nossa aplicação de forma graciosa e progressiva parte por parte, onde e quando fizer mais sentido.
+
+Quero que você tenha algumas coisas em mente, enquanto eu me gabo de todos esses prós. A primeira coisa é o fato de que arquitetura é uma ferramenta. Ferramenta projetada para resolver e corrigir de forma eficiente certos problemas específicos. Essa ferramenta funciona para nós porque resolve os problemas que temos – ela não foi feita para ser usada por todos, em todos os lugares.
+
+Na verdade, é bastante comum começar com o monolito em vez disso. O Monolith é um padrão de arquitetura bom, sólido, mais importante, simples, que simplesmente cumpre o seu papel. A verdade é que a maioria das aplicações criadas hoje nunca crescerá em tamanho a ponto de precisar desse escalonamento por decomposição.
+
+Quando se trata especialmente da arquitetura microfrontend, provavelmente o problema mais comum apontado é o potencial, que prejudica a fragmentação dos processos de desenvolvimento, tecnologias, soluções e, eventualmente, da própria aplicação. O risco é que o aumento dramático da autonomia das equipes leve à diminuição da eficácia e à falta de consistência da aplicação.
+
+O risco é válido, se você me perguntar – já passamos por esse problema em várias ocasiões diferentes. No entanto, acho que equipes autônomas e totalmente responsáveis por si mesmas é algo positivo – e nossos desenvolvedores tendem a confirmar que esse modelo funciona para eles. Existem maneiras de mitigar esse risco, principalmente padronização e automação de várias etapas nos processos de desenvolvimento de software, que serão discutidas mais adiante neste artigo. Basicamente, trata-se de encontrar um bom equilíbrio entre essa autonomia das equipes e padrões comuns compartilhados entre elas.
+
+Também é importante levar em conta o tamanho equilibrado e sensato de cada microfontend. Ao contrário de algumas crenças, que na minha opinião tornam esse risco de fragmentação um pouco exagerado, nem toda parte da interface precisa ser uma entidade separada. Naturalmente, quanto mais fragmentada for sua aplicação, maior o risco que vem com essa fragmentação, mas a abordagem microfrontend pode ser aplicada com diferentes níveis de fragmentação, o que é outra forma de gerenciar essa potencial responsabilidade.
 
 ## [Microfrontends] Nx
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77" align="right"></a>
@@ -383,8 +445,7 @@ O design correto geralmente segue essa lógica:
 
 Resumo direto, no teu estilo: eventos são desacoplados, mas difíceis de rastrear; estado global é simples, mas acopla tudo. Arquitetura madura de microfrontends usa os dois com critério, senão você recria no front-end os mesmos problemas que já existem no backend distribuído.
 
-
-## [Microfrontend] Bit e Bit Cloud
+## [Microfrontends] Bit e Bit Cloud
 <a href="https://bit.dev/"><img src="https://github.com/user-attachments/assets/bae1537b-cdba-495a-8d04-b5d2ecbdc681" align="right" height="177"></a>
 
 A Bit e a <a href="https://bit.cloud/">Bit Cloud</a> oferecem uma solução completa para equipes inovadoras que desenvolvem produtos de software componíveis. Como a plataforma líder do setor em desenvolvimento orientado a componentes, ela impulsiona o desenvolvimento de aplicativos componíveis em larga escala para milhares de equipes e empresas da Fortune 500.
