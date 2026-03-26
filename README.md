@@ -135,6 +135,12 @@ Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por 
 
 <img width="1024" height="1001" alt="Microfrontends_architecture-1024x1001" src="https://github.com/user-attachments/assets/982f79e5-c34b-4f9a-afeb-99a804ba6696" />
 
+![verticalisation](https://github.com/user-attachments/assets/d1c13573-0b72-4641-aee3-b6fb1c5c6570)
+
+<img width="1024" height="576" alt="immagine-1-1024x576" src="https://github.com/user-attachments/assets/74680d33-4561-455b-b939-54e1537180ff" />
+
+<img width="655" height="281" alt="mfe-architectures-with-bff" src="https://github.com/user-attachments/assets/e48cdf63-87b0-4ada-9b4e-186be7f014b7" />
+
 Deixe-me mostrar o que quero dizer. Suponha uma aplicação que consiste em armazenamentos independentes dedicados a serviços backend, que são então conectados aos seus próprios serviços frontend, e então há essa camada fina de composição por cima de tudo. É assim que a arquitetura da aplicação em que estou trabalhando se parece, é claro, representada de forma muito, muito simplificada. Quando colocamos isso no contexto da nossa organização e adicionamos equipes a esse diagrama, alguns dos benefícios dessa abordagem ficam muito claros.
 
 <img width="1280" height="1337" alt="microfrontend-app-architecture-with-teams" src="https://github.com/user-attachments/assets/9b9a56a3-d289-4812-853e-303136164b02" />
