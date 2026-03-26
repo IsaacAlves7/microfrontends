@@ -669,15 +669,13 @@ Em essência, o Bit suporta a integração perfeita e o gerenciamento independen
 
 O **Nx** é um *build system* e ferramenta de gerenciamento de **monorepo** focada em projetos modernos principalmente front-end, mas também back-end. Ele nasceu dentro do ecossistema Angular, mas hoje funciona muito bem com React, Vue.js, Node.js e até stacks fullstack.
 
-A ideia central do Nx não é só “organizar código”, mas **organizar como o código evolui e é construído**. Ele entende dependências entre projetos, executa builds de forma inteligente (só o que mudou), faz cache de tarefas e permite escalar um código grande sem virar bagunça. Em vez de vários repositórios isolados, você tem um único repositório com múltiplos apps e libs bem estruturados.
+A ideia central do Nx não é só “organizar código”, mas organizar como o código evolui e é construído. Ele entende dependências entre projetos, executa builds de forma inteligente (só o que mudou), faz cache de tarefas e permite escalar um código grande sem virar bagunça. Em vez de vários repositórios isolados, você tem um único repositório com múltiplos apps e libs bem estruturados.
 
-Agora, trazendo isso pro contexto de **microfrontends**, o Nx encaixa quase que perfeitamente.
+Agora, trazendo isso pro contexto de *microfrontends*, o Nx encaixa quase que perfeitamente.
 
 Microfrontends é basicamente aplicar a ideia de microservices no front-end: dividir uma aplicação grande em partes independentes, que podem ser desenvolvidas e até deployadas separadamente. O problema é que isso pode virar um caos rápido — múltiplos repositórios, dependências duplicadas, inconsistência de versões, pipelines diferentes, etc.
 
-É aí que o Nx entra como “cola arquitetural”.
-
-Com Nx, você pode ter um **monorepo contendo vários microfrontends**, por exemplo:
+É aí que o Nx entra como “cola arquitetural”. Com Nx, você pode ter um **monorepo contendo vários microfrontends**, por exemplo:
 
 * um app “host” (container)
 * vários apps “remotos” (features independentes)
