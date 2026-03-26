@@ -25,8 +25,8 @@ Micro frontends são uma abordagem de desenvolvimento frontend que divide uma ap
 
 <table>
   <tr>
-    <td><img width="511" height="692" alt="Captura de tela 2025-11-18 143946" src="https://github.com/user-attachments/assets/1fdae87d-deae-41e7-be47-fa7c54e9f9c8" /></td>
-    <td><img src="https://github.com/user-attachments/assets/55945ea7-7c16-4ad8-bf35-9490acb9ec2a"></td>
+    <td><img height="692" alt="Captura de tela 2025-11-18 143946" src="https://github.com/user-attachments/assets/1fdae87d-deae-41e7-be47-fa7c54e9f9c8" /></td>
+    <td><img height="692" src="https://github.com/user-attachments/assets/55945ea7-7c16-4ad8-bf35-9490acb9ec2a"></td>
   </tr>
 </table>
 
