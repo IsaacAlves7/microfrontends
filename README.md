@@ -349,7 +349,7 @@ And join the Nx community:
 ## [MFE] Eventos e Estados
 <img src="https://github.com/user-attachments/assets/d5fb1396-d940-4810-9990-e8aa4b6a9d74" align="right">
 
-Quando você entra em microfrontends, o maior desafio deixa de ser só “dividir a aplicação” e passa a ser **como essas partes conversam e compartilham estado sem virar um monolito distribuído no front-end** — exatamente o mesmo problema que você já enxergou no backend com microservices vs nanoservices.
+Quando você entra em microfrontends, o maior desafio deixa de ser só “dividir a aplicação” e passa a ser como essas partes conversam e compartilham estado sem virar um monolito distribuído no front-end, exatamente o mesmo problema que você já enxergou no backend com microservices vs nanoservices.
 
 Eventos e estado são as duas formas principais de resolver isso, e cada uma tem implicações arquiteturais bem diferentes.
 
