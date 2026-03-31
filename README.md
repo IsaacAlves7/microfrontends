@@ -177,8 +177,8 @@ Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por 
 
 <table>
   <tr>
-    <td><img width="1024" height="1001" alt="Microfrontends_architecture-1024x1001" src="https://github.com/user-attachments/assets/982f79e5-c34b-4f9a-afeb-99a804ba6696" /></td>
-    <td><img src="https://github.com/user-attachments/assets/d1c13573-0b72-4641-aee3-b6fb1c5c6570" /></td>
+    <td><img height="1001" alt="Microfrontends_architecture-1024x1001" src="https://github.com/user-attachments/assets/982f79e5-c34b-4f9a-afeb-99a804ba6696" /></td>
+    <td><img height="1001" alt="Microfrontends_architecture-1024x1001" src="https://github.com/user-attachments/assets/d1c13573-0b72-4641-aee3-b6fb1c5c6570" /></td>
   </tr>
 </table>
 
