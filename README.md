@@ -205,7 +205,27 @@ Quando se trata especialmente da arquitetura microfrontend, provavelmente o prob
 
 O risco é válido, se você me perguntar – já passamos por esse problema em várias ocasiões diferentes. No entanto, acho que equipes autônomas e totalmente responsáveis por si mesmas é algo positivo – e nossos desenvolvedores tendem a confirmar que esse modelo funciona para eles. Existem maneiras de mitigar esse risco, principalmente padronização e automação de várias etapas nos processos de desenvolvimento de software, que serão discutidas mais adiante neste artigo. Basicamente, trata-se de encontrar um bom equilíbrio entre essa autonomia das equipes e padrões comuns compartilhados entre elas.
 
+<img width="1548" height="854" alt="client-side-edge-side-server-side" src="https://github.com/user-attachments/assets/c2b9a93b-98b6-4e90-9a5d-46392b0fb9fe" />
+
 Também é importante levar em conta o tamanho equilibrado e sensato de cada microfontend. Ao contrário de algumas crenças, que na minha opinião tornam esse risco de fragmentação um pouco exagerado, nem toda parte da interface precisa ser uma entidade separada. Naturalmente, quanto mais fragmentada for sua aplicação, maior o risco que vem com essa fragmentação, mas a abordagem microfrontend pode ser aplicada com diferentes níveis de fragmentação, o que é outra forma de gerenciar essa potencial responsabilidade.
+
+Esse diagrama está mostrando **onde e como os Microfrontends (MFE)** podem ser compostos dentro de uma arquitetura — e a confusão é normal, porque aqui não é só “o que é MFE”, mas **onde eles vivem no fluxo da aplicação**.
+
+Microfrontend, no fundo, é pegar a ideia de microsserviços (dividir o backend em partes independentes) e aplicar no frontend. Em vez de ter um único front gigante, você quebra em vários “mini-frontends”, cada um responsável por uma parte da UI e geralmente mantido por times diferentes, podendo até usar tecnologias diferentes como React, Angular ou Vue.js.
+
+Agora, sobre a imagem: ela mostra três formas principais de compor esses MFEs.
+
+No **client-side**, tudo acontece no navegador. O usuário carrega uma aplicação base (tipo um shell) e, a partir daí, os MFEs são carregados dinamicamente via JavaScript. Isso é muito comum com coisas como Module Federation ou frameworks de microfrontend. Aqui, o browser é quem junta tudo. A vantagem é flexibilidade e independência de deploy; a desvantagem é que pode pesar mais no cliente e impactar performance inicial.
+
+No **edge-side**, a composição acontece antes de chegar no navegador, mas não exatamente no backend tradicional — e sim numa camada intermediária, tipo CDN inteligente ou edge functions. Ferramentas como Cloudflare ou Akamai conseguem montar partes da página vindas de diferentes MFEs e entregar já “quase pronta”. Isso melhora performance e mantém certa independência entre times.
+
+No **server-side**, quem junta tudo é o backend. Ele busca os pedaços dos MFEs e monta a página final antes de enviar pro cliente, algo parecido com SSR (server-side rendering). Aqui você tem mais controle e performance previsível, mas perde um pouco da independência total entre os times, porque existe uma orquestração central.
+
+O que o desenho também sugere é que os MFEs podem existir em vários níveis: na origem (cada app independente), no CDN (cacheados ou parcialmente montados) e no cliente (render final). Ou seja, não é um lugar fixo — é um **pipeline de composição**.
+
+O ponto mais importante pra você entender de verdade é: Microfrontend não é só tecnologia, é **estratégia organizacional**. É sobre permitir que times diferentes desenvolvam, deployem e escalem partes da interface de forma independente, sem depender de um monolito frontend.
+
+Se você quiser conectar isso com o que você já trabalha (microservices, RabbitMQ, etc.), pensa assim: cada MFE seria como um “consumer visual” de um domínio específico. Um cuida de pagamento, outro de perfil, outro de dashboard — tudo independente, mas compondo a mesma aplicação.
 
 ## [MFE] Nx
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77" align="right"></a>
