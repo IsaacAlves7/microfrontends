@@ -225,9 +225,29 @@ O que o desenho também sugere é que os MFEs podem existir em vários níveis: 
 
 O ponto mais importante pra você entender de verdade é: Microfrontend não é só tecnologia, é **estratégia organizacional**. É sobre permitir que times diferentes desenvolvam, deployem e escalem partes da interface de forma independente, sem depender de um monolito frontend.
 
+Se você quiser conectar isso com o que você já trabalha (microservices, RabbitMQ, etc.), pensa assim: cada MFE seria como um “consumer visual” de um domínio específico. Um cuida de pagamento, outro de perfil, outro de dashboard — tudo independente, mas compondo a mesma aplicação.
+
 <img width="742" height="601" alt="mfe-architectures" src="https://github.com/user-attachments/assets/a5c52db7-8a33-4d4b-9225-a8a57037bffb" />
 
-Se você quiser conectar isso com o que você já trabalha (microservices, RabbitMQ, etc.), pensa assim: cada MFE seria como um “consumer visual” de um domínio específico. Um cuida de pagamento, outro de perfil, outro de dashboard — tudo independente, mas compondo a mesma aplicação.
+Aqui você já está olhando com um nível mais avançado, esse desenho já não está mais focado em “onde renderiza”, mas sim em **como os MFEs se conectam com o backend**, e aí entra forte o padrão de **BFF (Backend for Frontend)**.
+
+O que essa imagem sugere é que você tem vários **microfrontends independentes**, mas todos eles conversam com uma camada intermediária única: um **API Gateway / GraphQL**. Esse gateway atua como ponto de entrada e faz o roteamento por domínio. Em vez de cada MFE sair chamando dezenas de microsserviços diretamente, ele fala com uma única camada que entende o contexto.
+
+Quando você mencionou BFF, você chegou bem perto do conceito. A diferença sutil é que:
+
+Se for um **API Gateway tradicional**, tipo Kong ou NGINX, ele normalmente só roteia, autentica, faz rate limit, etc. Ele não “entende” profundamente o frontend.
+
+Já no modelo de BFF, cada frontend (ou grupo de MFEs) teria um backend específico, pensado exatamente para aquele domínio de UI. Isso pode ser feito com REST ou com GraphQL, que é muito comum nesse cenário.
+
+O que esse diagrama parece mostrar é um **meio-termo moderno**: um gateway que também agrega dados — muito parecido com GraphQL — onde cada microfrontend consulta exatamente o que precisa. Isso reduz overfetching/underfetching e desacopla o frontend dos microsserviços internos.
+
+Agora, o ponto arquitetural mais importante aqui é o seguinte: os MFEs estão separados na camada de apresentação, mas o backend ainda pode estar organizado por domínio (DDD). Então o gateway vira uma espécie de “orquestrador de domínio”, direcionando requisições para serviços específicos, como pagamentos, usuários, pedidos, etc.
+
+Se você levar isso pro teu contexto (você já trabalha com mensageria, APIs, etc.), pensa assim: Cada MFE representa um bounded context visual, e o gateway/BFF é a camada que traduz isso para os serviços internos. Ele pode até agregar múltiplos serviços numa única resposta — algo que com GraphQL fica ainda mais natural.
+
+Uma arquitetura comum nesse estilo seria: um MFE de “Pedidos” chamando um BFF de pedidos, que por trás conversa com microsserviços via REST ou até eventos (RabbitMQ, por exemplo), monta a resposta e devolve pro frontend.
+
+Então sim — esse desenho está bem alinhado com BFF, mas com uma pegada mais moderna, muitas vezes usando GraphQL como “super gateway”.
 
 ## [MFE] Nx
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="77" align="right"></a>
