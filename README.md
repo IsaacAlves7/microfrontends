@@ -175,9 +175,12 @@ Além disso, o desenvolvimento baseado em componentes favorece a testabilidade e
 
 Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por essa abordagem já deveriam ser resolvidos por algo mais simples, como um bom modelo de componentes, portanto deve ser sobre outra coisa. Talvez resolvendo problemas organizacionais? Concordo parcialmente com isso. Na nossa experiência, isso não resolve necessariamente problemas desse tipo, mas requer uma configuração específica em nível organizacional por design, o que pode ser benéfico para você.
 
-<img width="1024" height="1001" alt="Microfrontends_architecture-1024x1001" src="https://github.com/user-attachments/assets/982f79e5-c34b-4f9a-afeb-99a804ba6696" />
-
-![verticalisation](https://github.com/user-attachments/assets/d1c13573-0b72-4641-aee3-b6fb1c5c6570)
+<table>
+  <tr>
+    <td><img width="1024" height="1001" alt="Microfrontends_architecture-1024x1001" src="https://github.com/user-attachments/assets/982f79e5-c34b-4f9a-afeb-99a804ba6696" /></td>
+    <td><img src="https://github.com/user-attachments/assets/d1c13573-0b72-4641-aee3-b6fb1c5c6570" /></td>
+  </tr>
+</table>
 
 <img width="1024" height="576" alt="immagine-1-1024x576" src="https://github.com/user-attachments/assets/74680d33-4561-455b-b939-54e1537180ff" />
 
