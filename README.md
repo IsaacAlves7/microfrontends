@@ -7,7 +7,7 @@
 
 <img src="https://em-content.zobj.net/source/microsoft-teams/400/artist-palette_1f3a8.png" align="right" height="77">
 
-**Micro-frontend** é uma abordagem de arquitetura de software para desenvolvimento web inspirada em padrões de <a href="">microsserviços</a>. Ou seja, estamos construindo aplicativos componíveis de forma orquestrada e escalável usando uma plataforma de desenvolvimento orientada a componentes (CDD - Component-Driven Development). Ao longo da minha carreira, testemunhei os desafios das arquiteturas monolíticas de front-end e o poder transformador dos microfront-ends.
+**Micro-frontend** é uma abordagem de arquitetura de software para desenvolvimento web inspirada em padrões de <a href="https://github.com/IsaacAlves7/microservices/">microsserviços</a>. Ou seja, estamos construindo aplicativos componíveis de forma orquestrada e escalável usando uma plataforma de desenvolvimento orientada a componentes (CDD - Component-Driven Development). Ao longo da minha carreira, testemunhei os desafios das arquiteturas monolíticas de front-end e o poder transformador dos microfront-ends.
 
 Talvez você já tenha ouvido falar sobre o conceito de microserviços. Aquele negócio de dividir o back-end em partes menores, cada um com sua responsabilidade (SOLID). Porém, no front-end ainda é muito comum o uso de monolitos. 
 
