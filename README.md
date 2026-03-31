@@ -225,6 +225,8 @@ O que o desenho também sugere é que os MFEs podem existir em vários níveis: 
 
 O ponto mais importante pra você entender de verdade é: Microfrontend não é só tecnologia, é **estratégia organizacional**. É sobre permitir que times diferentes desenvolvam, deployem e escalem partes da interface de forma independente, sem depender de um monolito frontend.
 
+<img width="742" height="601" alt="mfe-architectures" src="https://github.com/user-attachments/assets/a5c52db7-8a33-4d4b-9225-a8a57037bffb" />
+
 Se você quiser conectar isso com o que você já trabalha (microservices, RabbitMQ, etc.), pensa assim: cada MFE seria como um “consumer visual” de um domínio específico. Um cuida de pagamento, outro de perfil, outro de dashboard — tudo independente, mas compondo a mesma aplicação.
 
 ## [MFE] Nx
