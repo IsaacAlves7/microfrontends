@@ -169,9 +169,12 @@ Na prática, os componentes possuem interfaces bem definidas e comunicam-se entr
 
 Além disso, o desenvolvimento baseado em componentes favorece a testabilidade e o versionamento granular, pois cada unidade pode ser testada isoladamente e evoluída de forma segura. Também incentiva a colaboração entre equipes, permitindo que diferentes grupos trabalhem em diferentes componentes sem conflitos, o que é crucial em projetos grandes e distribuídos. No entanto, adotar component-based exige disciplina em design, pois é necessário definir interfaces estáveis, evitar acoplamentos desnecessários e gerenciar bem a comunicação entre os módulos. Quando bem aplicado, o component-based resulta em sistemas mais flexíveis, organizados e fáceis de escalar, permitindo evoluções constantes sem comprometer a estrutura já existente.
 
-<img width="629" height="442" alt="dan-abramov-on-reasons-behind-microfrontends" src="https://github.com/user-attachments/assets/a95a7d46-b849-42f6-8e7f-450a53eadefd" />
-
-![1762133418361](https://github.com/user-attachments/assets/faa841f0-3e46-4e45-ab93-12bfeaaae932)
+<table>
+  <tr>
+    <td><img height="442" alt="dan-abramov-on-reasons-behind-microfrontends" src="https://github.com/user-attachments/assets/a95a7d46-b849-42f6-8e7f-450a53eadefd" /></td>
+    <td><img height="442" src="https://github.com/user-attachments/assets/faa841f0-3e46-4e45-ab93-12bfeaaae932" /></td>
+  </tr>
+</table>
 
 Voltando aos tweets de Dan Abramov, ele sugeriu que os problemas resolvidos por essa abordagem já deveriam ser resolvidos por algo mais simples, como um bom modelo de componentes, portanto deve ser sobre outra coisa. Talvez resolvendo problemas organizacionais? Concordo parcialmente com isso. Na nossa experiência, isso não resolve necessariamente problemas desse tipo, mas requer uma configuração específica em nível organizacional por design, o que pode ser benéfico para você.
 
